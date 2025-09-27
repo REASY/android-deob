@@ -1,0 +1,17 @@
+[package]
+name = "obfuscate"
+version = "0.1.0"
+edition = "2024"
+#
+#[[bin]]
+#name = "uniffi-bindgen"
+#path = "uniffi-bindgen.rs"
+
+[lib]
+crate-type = ["cdylib"]  # Android needs a .so
+
+[dependencies]
+uniffi = "0.29"
+
+[build-dependencies]
+uniffi_build = "0.29"

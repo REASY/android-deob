@@ -1,0 +1,4 @@
+namespace obfuscate {
+    string greet(string name);
+};
+
