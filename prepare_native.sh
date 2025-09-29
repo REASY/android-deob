@@ -4,9 +4,9 @@ set -e
 
 cd obfuscate-rs || exit
 
-RELEASE="debug"
+RELEASE="release"
 
-cross build --quiet --target x86_64-linux-android && cross build --quiet --target aarch64-linux-android
+cross build --release --quiet --target x86_64-linux-android && cross build --release --quiet --target aarch64-linux-android
 
 mkdir -p ../app/src/main/jniLibs/arm64-v8a/
 mkdir -p ../app/src/main/jniLibs/x86_64/
@@ -22,7 +22,7 @@ cargo run --quiet --features=uniffi/cli \
     --language kotlin
 
 mkdir -p ../app/src/main/java/uniffi/
-cp -r src/uniffi/ ../app/src/main/java/uniffi/
+cp -r src/uniffi/ ../app/src/main/java/
 
 echo "Copied generated Kotlin code"
 

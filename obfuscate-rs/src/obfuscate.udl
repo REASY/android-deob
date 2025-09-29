@@ -1,4 +1,5 @@
 namespace obfuscate {
-    string greet(string name);
+    string decrypt(bytes data);
+    bytes decrypt_bytes(bytes data);
 };
 

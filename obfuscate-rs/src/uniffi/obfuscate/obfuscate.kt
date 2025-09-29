@@ -713,6 +713,8 @@ internal interface UniffiForeignFutureCompleteVoid : com.sun.jna.Callback {
 
 
 
+
+
 // For large crates we prevent `MethodTooLargeException` (see #2340)
 // N.B. the name of the extension is very misleading, since it is 
 // rather `InterfaceTooLargeException`, caused by too many methods 
@@ -728,7 +730,9 @@ internal interface UniffiForeignFutureCompleteVoid : com.sun.jna.Callback {
 // when the library is loaded.
 internal interface IntegrityCheckingUniffiLib : Library {
     // Integrity check functions only
-    fun uniffi_obfuscate_checksum_func_greet(
+    fun uniffi_obfuscate_checksum_func_decrypt(
+): Short
+fun uniffi_obfuscate_checksum_func_decrypt_bytes(
 ): Short
 fun ffi_obfuscate_uniffi_contract_version(
 ): Int
@@ -775,7 +779,9 @@ internal interface UniffiLib : Library {
     }
 
     // FFI functions
-    fun uniffi_obfuscate_fn_func_greet(`name`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
+    fun uniffi_obfuscate_fn_func_decrypt(`data`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
+): RustBuffer.ByValue
+fun uniffi_obfuscate_fn_func_decrypt_bytes(`data`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
 ): RustBuffer.ByValue
 fun ffi_obfuscate_rustbuffer_alloc(`size`: Long,uniffi_out_err: UniffiRustCallStatus, 
 ): RustBuffer.ByValue
@@ -903,7 +909,10 @@ private fun uniffiCheckContractApiVersion(lib: IntegrityCheckingUniffiLib) {
 }
 @Suppress("UNUSED_PARAMETER")
 private fun uniffiCheckApiChecksums(lib: IntegrityCheckingUniffiLib) {
-    if (lib.uniffi_obfuscate_checksum_func_greet() != 34698.toShort()) {
+    if (lib.uniffi_obfuscate_checksum_func_decrypt() != 58139.toShort()) {
+        throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
+    }
+    if (lib.uniffi_obfuscate_checksum_func_decrypt_bytes() != 57711.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
 }
@@ -1040,11 +1049,39 @@ public object FfiConverterString: FfiConverter<String, RustBuffer.ByValue> {
         buf.putInt(byteBuf.limit())
         buf.put(byteBuf)
     }
-} fun `greet`(`name`: kotlin.String): kotlin.String {
+}
+
+/**
+ * @suppress
+ */
+public object FfiConverterByteArray: FfiConverterRustBuffer<ByteArray> {
+    override fun read(buf: ByteBuffer): ByteArray {
+        val len = buf.getInt()
+        val byteArr = ByteArray(len)
+        buf.get(byteArr)
+        return byteArr
+    }
+    override fun allocationSize(value: ByteArray): ULong {
+        return 4UL + value.size.toULong()
+    }
+    override fun write(value: ByteArray, buf: ByteBuffer) {
+        buf.putInt(value.size)
+        buf.put(value)
+    }
+} fun `decrypt`(`data`: kotlin.ByteArray): kotlin.String {
             return FfiConverterString.lift(
     uniffiRustCall() { _status ->
-    UniffiLib.INSTANCE.uniffi_obfuscate_fn_func_greet(
-        FfiConverterString.lower(`name`),_status)
+    UniffiLib.INSTANCE.uniffi_obfuscate_fn_func_decrypt(
+        FfiConverterByteArray.lower(`data`),_status)
+}
+    )
+    }
+    
+ fun `decryptBytes`(`data`: kotlin.ByteArray): kotlin.ByteArray {
+            return FfiConverterByteArray.lift(
+    uniffiRustCall() { _status ->
+    UniffiLib.INSTANCE.uniffi_obfuscate_fn_func_decrypt_bytes(
+        FfiConverterByteArray.lower(`data`),_status)
 }
     )
     }

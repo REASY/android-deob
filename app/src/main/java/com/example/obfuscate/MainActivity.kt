@@ -14,8 +14,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val greeted = uniffi.obfuscate.greet("Art")
-        println(greeted)
+        DynamicLoaderV1.init(this, uniffi.obfuscate.decrypt((byteArrayOf(0x05, 0x4C, 0x02, 0x04, 0x5C, 0x1B, 0x44, 0x1D))))
+
+//        val collector = com.example.device.DeviceInfoCollector(this, AppInstallIdProvider.getAppInstallId(this))
+//        val deviceInfo = collector.collectDeviceInfo()
+//        println(deviceInfo.toString())
+
+        val installId = AppInstallIdProvider.getAppInstallId(this)
+        println("App Install ID: " + installId)
+
+        // Print to console
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

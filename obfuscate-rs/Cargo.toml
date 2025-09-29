@@ -2,16 +2,26 @@
 name = "obfuscate"
 version = "0.1.0"
 edition = "2024"
-#
-#[[bin]]
-#name = "uniffi-bindgen"
-#path = "uniffi-bindgen.rs"
+
+[[bin]]
+name = "encryptor"
+path = "src/bin/encryptor.rs"
+
+[[bin]]
+name = "uniffi-bindgen"
+path = "src/bin/uniffi-bindgen.rs"
 
 [lib]
-crate-type = ["cdylib"]  # Android needs a .so
+crate-type = ["lib", "cdylib"]  # Android needs a .so
 
 [dependencies]
-uniffi = "0.29"
+clap = {  version = "4.5", features = ["derive"] }
+jni = { git = "https://github.com/jni-rs/jni-rs.git", rev = "65471d8cdccf3e7fd937131da873cf3b6090282a" }
+uniffi = {  version = "0.29", features = ["cli"] }
+
 
 [build-dependencies]
 uniffi_build = "0.29"
+
+[dev-dependencies]
+jni = { git = "https://github.com/jni-rs/jni-rs.git", rev = "65471d8cdccf3e7fd937131da873cf3b6090282a", features = ["invocation"] }
