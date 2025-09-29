@@ -1,27 +1,24 @@
-[package]
-name = "obfuscate"
-version = "0.1.0"
-edition = "2024"
+[workspace]
+resolver = "2"
 
-[[bin]]
-name = "encryptor"
-path = "src/bin/encryptor.rs"
+members = [
+    "obfuscate-core",
+    "obfuscate",
+    "obfuscate-tools",
+]
 
-[[bin]]
-name = "uniffi-bindgen"
-path = "src/bin/uniffi-bindgen.rs"
+[workspace.package]
+authors = ["Artavazd Balaian <reasyu@gmail.com>"]
+edition = "2021"
+license = "Apache-2.0"
+readme = "README.md"
+rust-version = "1.90.0"
+version = "0.0.1"
 
-[lib]
-crate-type = ["lib", "cdylib"]  # Android needs a .so
 
-[dependencies]
-clap = {  version = "4.5", features = ["derive"] }
+[workspace.dependencies]
+clap = {  version = "4.5" }
 jni = { git = "https://github.com/jni-rs/jni-rs.git", rev = "65471d8cdccf3e7fd937131da873cf3b6090282a" }
-uniffi = {  version = "0.29", features = ["cli"] }
-
-
-[build-dependencies]
-uniffi_build = "0.29"
-
-[dev-dependencies]
-jni = { git = "https://github.com/jni-rs/jni-rs.git", rev = "65471d8cdccf3e7fd937131da873cf3b6090282a", features = ["invocation"] }
+uniffi = {  version = "0.29" }
+obfuscate-core = { path = "obfuscate-core"}
+obfuscate = { path = "obfuscate"}

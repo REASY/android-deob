@@ -15,7 +15,8 @@ $PATH_D8 --release ./app/build/intermediates/javac/release/compileReleaseJavaWit
 echo -ne "a-very-secret-key-for-this-!@#$" > $OUTPUT/key.bin
 
 cd obfuscate-rs
-cargo run --release --quiet --features=uniffi/cli \
+cargo run --release --quiet \
+    --package obfuscate-tools \
     --bin encryptor \
     -- --input-file $OUTPUT/classes.dex \
     --output-file ../app/src/main/assets/data.bin \

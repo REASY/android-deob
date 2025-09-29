@@ -94,7 +94,7 @@ public final class DynamicLoaderV1 {
         }
     }
 
-    private static String getStr(byte[] arr) {
+    public static String getStr(byte[] arr) {
         return ObfuscateKt.decrypt(arr);
     }
 }

@@ -16,13 +16,14 @@ cp target/x86_64-linux-android/${RELEASE}/libobfuscate.so ../app/src/main/jniLib
 
 echo "Copied native libraries"
 
-cargo run --quiet --features=uniffi/cli \
+cargo run --release --quiet --features=uniffi/cli \
+    --package obfuscate \
     --bin uniffi-bindgen \
-    generate src/obfuscate.udl \
+    generate obfuscate/src/obfuscate.udl \
     --language kotlin
 
 mkdir -p ../app/src/main/java/uniffi/
-cp -r src/uniffi/ ../app/src/main/java/
+cp -r obfuscate/src/uniffi/ ../app/src/main/java/
 
 echo "Copied generated Kotlin code"
 

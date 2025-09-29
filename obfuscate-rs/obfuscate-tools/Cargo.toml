@@ -1,0 +1,17 @@
+[package]
+name = "obfuscate-tools"
+version = { workspace = true }
+edition = { workspace = true }
+license = { workspace = true }
+authors = { workspace = true }
+rust-version = { workspace = true }
+
+
+[[bin]]
+name = "encryptor"
+path = "src/bin/encryptor.rs"
+
+[dependencies]
+clap = {  workspace = true, features = ["derive"] }
+obfuscate-core = { workspace = true}
+

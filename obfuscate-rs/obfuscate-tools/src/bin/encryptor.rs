@@ -1,5 +1,5 @@
 use clap::Parser;
-use obfuscate::encrypt_bytes;
+use obfuscate_core::encrypt_bytes;
 use std::fs::File;
 use std::io::{BufReader, BufWriter, Read, Write};
 
