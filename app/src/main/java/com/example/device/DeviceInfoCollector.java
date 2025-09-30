@@ -66,7 +66,8 @@ public class DeviceInfoCollector {
                     .setAndroidVersion(safeGet(Build.VERSION.RELEASE))
                     .setApiLevel(Build.VERSION.SDK_INT)
                     .setBuildId(safeGet(Build.DISPLAY))
-                    .setFingerprint(safeGet(Build.FINGERPRINT));
+                    .setFingerprint(safeGet(Build.FINGERPRINT))
+                    .setSupportedAbis(Build.SUPPORTED_ABIS);
         } catch (Exception e) {
             System.out.println("Error collecting build info: " + e.getMessage());
         }
@@ -146,29 +147,6 @@ public class DeviceInfoCollector {
     // Helper methods
     private String safeGet(String value) {
         return value != null ? value : "Unknown";
-    }
-
-    private String getSimState(int simState) {
-        switch (simState) {
-            case TelephonyManager.SIM_STATE_ABSENT:
-                return "ABSENT";
-            case TelephonyManager.SIM_STATE_NETWORK_LOCKED:
-                return "NETWORK_LOCKED";
-            case TelephonyManager.SIM_STATE_PIN_REQUIRED:
-                return "PIN_REQUIRED";
-            case TelephonyManager.SIM_STATE_PUK_REQUIRED:
-                return "PUK_REQUIRED";
-            case TelephonyManager.SIM_STATE_READY:
-                return "READY";
-            case TelephonyManager.SIM_STATE_UNKNOWN:
-                return "UNKNOWN";
-            default:
-                return "UNKNOWN (" + simState + ")";
-        }
-    }
-
-    private String intToIp(int ip) {
-        return (ip & 0xFF) + "." + ((ip >> 8) & 0xFF) + "." + ((ip >> 16) & 0xFF) + "." + ((ip >> 24) & 0xFF);
     }
 
     private String formatFileSize(long size) {

@@ -1,5 +1,7 @@
 package com.example.device;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Optional;
 
 public class DeviceInfo {
@@ -15,6 +17,7 @@ public class DeviceInfo {
     private final Optional<Integer> apiLevel;
     private final Optional<String> buildId;
     private final Optional<String> fingerprint;
+    private final String[] supportedAbis;
 
     // Display Information
     private final Optional<String> screenResolution;
@@ -55,6 +58,7 @@ public class DeviceInfo {
         this.apiLevel = Optional.ofNullable(builder.apiLevel);
         this.buildId = Optional.ofNullable(builder.buildId);
         this.fingerprint = Optional.ofNullable(builder.fingerprint);
+        this.supportedAbis = builder.supportedAbis;
         this.screenResolution = Optional.ofNullable(builder.screenResolution);
         this.density = Optional.ofNullable(builder.density);
         this.densityDpi = Optional.ofNullable(builder.densityDpi);
@@ -85,6 +89,7 @@ public class DeviceInfo {
         private Integer apiLevel;
         private String buildId;
         private String fingerprint;
+        private String[] supportedAbis;
         private String screenResolution;
         private Float density;
         private Integer densityDpi;
@@ -132,16 +137,17 @@ public class DeviceInfo {
         public Builder setUserAgent(String userAgent) { this.userAgent = userAgent; return this; }
         public Builder setAppInstallId(String appInstallId) { this.appInstallId = appInstallId; return this; }
 
+        public Builder setSupportedAbis(String[] supportedAbis) { this.supportedAbis = supportedAbis; return  this; }
+
         public DeviceInfo build() {
             return new DeviceInfo(this);
         }
+
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("=== ANDROID DEVICE INFORMATION ===\n\n");
-
         appendOptional(sb, "Manufacturer", manufacturer);
         appendOptional(sb, "Model", model);
         appendOptional(sb, "Product", product);
@@ -153,6 +159,7 @@ public class DeviceInfo {
         appendOptional(sb, "API Level", apiLevel);
         appendOptional(sb, "Build ID", buildId);
         appendOptional(sb, "Fingerprint", fingerprint);
+        appendOptional(sb, "Supported ABIs", Optional.of(Arrays.toString(supportedAbis)));
         appendOptional(sb, "Screen Resolution", screenResolution);
         appendOptional(sb, "Density", density);
         appendOptional(sb, "Density DPI", densityDpi);
@@ -169,7 +176,6 @@ public class DeviceInfo {
         appendOptional(sb, "Used Memory", usedMemory);
         appendOptional(sb, "User Agent", userAgent);
         appendOptional(sb, "AppInstallId", appInstallId);
-
         return sb.toString();
     }
 

@@ -6,12 +6,9 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.obfuscate.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
-    private var deviceInfo: Any? = Any()
 
     private fun getDeviceInfo(): Any? {
 //        val collector = com.example.device.DeviceInfoCollector(this, AppInstallIdProvider.getAppInstallId(this))
@@ -84,21 +81,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this.deviceInfo = getDeviceInfo()
-        println(deviceInfo.toString())
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // Initial call to getDeviceInfo and logging (optional, you can remove if not needed)
+        // val initialDeviceInfo = getDeviceInfo()
+        // println(initialDeviceInfo.toString())
 
         val installId = AppInstallIdProvider.getAppInstallId(this)
         println("App Install ID: " + installId)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null)
-                .setAnchorView(R.id.fab).show()
+        binding.getDeviceInfoButton.setOnClickListener {
+            val deviceInfoResult = getDeviceInfo()
+            // Convert the result to a String for display.
+            // Handle null case appropriately.
+            binding.deviceInfoTextView.text = deviceInfoResult?.toString() ?: "N/A"
         }
     }
 
