@@ -25,22 +25,6 @@ public class DeviceInfo {
     private final Optional<String> androidId;
     private final Optional<String> serialNumber;
 
-    // Network Information
-    private final Optional<String> networkOperator;
-    private final Optional<String> networkCountry;
-    private final Optional<String> simOperator;
-    private final Optional<String> simCountry;
-    private final Optional<String> simState;
-
-    // WiFi Information
-    private final Optional<String> ssid;
-    private final Optional<String> bssid;
-    private final Optional<String> macAddress;
-    private final Optional<Integer> linkSpeed;
-    private final Optional<String> ipAddress;
-    private final Optional<Integer> networkId;
-    private final Optional<Integer> rssi;
-
     // Locale & Storage
     private final Optional<String> language;
     private final Optional<String> country;
@@ -76,18 +60,6 @@ public class DeviceInfo {
         this.densityDpi = Optional.ofNullable(builder.densityDpi);
         this.androidId = Optional.ofNullable(builder.androidId);
         this.serialNumber = Optional.ofNullable(builder.serialNumber);
-        this.networkOperator = Optional.ofNullable(builder.networkOperator);
-        this.networkCountry = Optional.ofNullable(builder.networkCountry);
-        this.simOperator = Optional.ofNullable(builder.simOperator);
-        this.simCountry = Optional.ofNullable(builder.simCountry);
-        this.simState = Optional.ofNullable(builder.simState);
-        this.ssid = Optional.ofNullable(builder.ssid);
-        this.bssid = Optional.ofNullable(builder.bssid);
-        this.macAddress = Optional.ofNullable(builder.macAddress);
-        this.linkSpeed = Optional.ofNullable(builder.linkSpeed);
-        this.ipAddress = Optional.ofNullable(builder.ipAddress);
-        this.networkId = Optional.ofNullable(builder.networkId);
-        this.rssi = Optional.ofNullable(builder.rssi);
         this.language = Optional.ofNullable(builder.language);
         this.country = Optional.ofNullable(builder.country);
         this.timezone = Optional.ofNullable(builder.timezone);
@@ -118,18 +90,6 @@ public class DeviceInfo {
         private Integer densityDpi;
         private String androidId;
         private String serialNumber;
-        private String networkOperator;
-        private String networkCountry;
-        private String simOperator;
-        private String simCountry;
-        private String simState;
-        private String ssid;
-        private String bssid;
-        private String macAddress;
-        private Integer linkSpeed;
-        private String ipAddress;
-        private Integer networkId;
-        private Integer rssi;
         private String language;
         private String country;
         private String timezone;
@@ -160,18 +120,6 @@ public class DeviceInfo {
         public Builder setDensityDpi(Integer densityDpi) { this.densityDpi = densityDpi; return this; }
         public Builder setAndroidId(String androidId) { this.androidId = androidId; return this; }
         public Builder setSerialNumber(String serialNumber) { this.serialNumber = serialNumber; return this; }
-        public Builder setNetworkOperator(String networkOperator) { this.networkOperator = networkOperator; return this; }
-        public Builder setNetworkCountry(String networkCountry) { this.networkCountry = networkCountry; return this; }
-        public Builder setSimOperator(String simOperator) { this.simOperator = simOperator; return this; }
-        public Builder setSimCountry(String simCountry) { this.simCountry = simCountry; return this; }
-        public Builder setSimState(String simState) { this.simState = simState; return this; }
-        public Builder setSsid(String ssid) { this.ssid = ssid; return this; }
-        public Builder setBssid(String bssid) { this.bssid = bssid; return this; }
-        public Builder setMacAddress(String macAddress) { this.macAddress = macAddress; return this; }
-        public Builder setLinkSpeed(Integer linkSpeed) { this.linkSpeed = linkSpeed; return this; }
-        public Builder setIpAddress(String ipAddress) { this.ipAddress = ipAddress; return this; }
-        public Builder setNetworkId(Integer networkId) { this.networkId = networkId; return this; }
-        public Builder setRssi(Integer rssi) { this.rssi = rssi; return this; }
         public Builder setLanguage(String language) { this.language = language; return this; }
         public Builder setCountry(String country) { this.country = country; return this; }
         public Builder setTimezone(String timezone) { this.timezone = timezone; return this; }
@@ -210,18 +158,6 @@ public class DeviceInfo {
         appendOptional(sb, "Density DPI", densityDpi);
         appendOptional(sb, "Android ID", androidId);
         appendOptional(sb, "Serial Number", serialNumber);
-        appendOptional(sb, "Network Operator", networkOperator);
-        appendOptional(sb, "Network Country", networkCountry);
-        appendOptional(sb, "SIM Operator", simOperator);
-        appendOptional(sb, "SIM Country", simCountry);
-        appendOptional(sb, "SIM State", simState);
-        appendOptional(sb, "SSID", ssid);
-        appendOptional(sb, "BSSID", bssid);
-        appendOptional(sb, "MAC Address", macAddress);
-        appendOptional(sb, "Link Speed", linkSpeed);
-        appendOptional(sb, "IP Address", ipAddress);
-        appendOptional(sb, "Network ID", networkId);
-        appendOptional(sb, "RSSI", rssi);
         appendOptional(sb, "Language", language);
         appendOptional(sb, "Country", country);
         appendOptional(sb, "Timezone", timezone);

@@ -3,20 +3,11 @@ package com.example.device;
 import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiManager;
-import android.net.wifi.WifiInfo;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.List;
 import java.util.Locale;
 
 public class DeviceInfoCollector {
@@ -41,15 +32,6 @@ public class DeviceInfoCollector {
 
             // Device Identifiers (may require permissions)
             collectDeviceIdentifiers(builder);
-
-            // Network Information (may require permissions)
-            collectNetworkInfo(builder);
-
-            // WiFi Information (may require permissions)
-            collectWifiInfo(builder);
-
-            // IP Address Information
-            collectIpAddressInfo(builder);
 
             // Locale and Timezone (always available)
             collectLocaleInfo(builder);
@@ -125,73 +107,6 @@ public class DeviceInfoCollector {
         }
     }
 
-    private void collectNetworkInfo(DeviceInfo.Builder builder) {
-        try {
-            TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-            if (tm != null) {
-                try {
-                    builder.setNetworkOperator(safeGet(tm.getNetworkOperatorName()))
-                            .setNetworkCountry(safeGet(tm.getNetworkCountryIso()))
-                            .setSimOperator(safeGet(tm.getSimOperatorName()))
-                            .setSimCountry(safeGet(tm.getSimCountryIso()))
-                            .setSimState(getSimState(tm.getSimState()));
-                } catch (SecurityException e) {
-                    System.out.println("Telephony permissions not granted");
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error collecting network info: " + e.getMessage());
-        }
-    }
-
-    private void collectWifiInfo(DeviceInfo.Builder builder) {
-        try {
-            WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-            if (wifiManager != null) {
-                try {
-                    WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                    if (wifiInfo != null) {
-                        builder.setSsid(safeGet(wifiInfo.getSSID()))
-                                .setBssid(safeGet(wifiInfo.getBSSID()))
-                                .setMacAddress(safeGet(wifiInfo.getMacAddress()))
-                                .setLinkSpeed(wifiInfo.getLinkSpeed())
-                                .setIpAddress(intToIp(wifiInfo.getIpAddress()))
-                                .setNetworkId(wifiInfo.getNetworkId())
-                                .setRssi(wifiInfo.getRssi());
-                    }
-                } catch (SecurityException e) {
-                    System.out.println("WiFi permissions not granted");
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Error collecting WiFi info: " + e.getMessage());
-        }
-    }
-
-    private void collectIpAddressInfo(DeviceInfo.Builder builder) {
-        try {
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            if (networkInterfaces == null) return;
-
-            List<NetworkInterface> interfaces = Collections.list(networkInterfaces);
-            for (NetworkInterface intf : interfaces) {
-                if (intf == null) continue;
-
-                List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
-                for (InetAddress addr : addrs) {
-                    if (!addr.isLoopbackAddress()) {
-                        // Just take the first non-loopback address for simplicity
-                        builder.setIpAddress(addr.getHostAddress());
-                        return;
-                    }
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Error collecting IP address info: " + e.getMessage());
-        }
-    }
-
     private void collectLocaleInfo(DeviceInfo.Builder builder) {
         try {
             builder.setLanguage(Locale.getDefault().getLanguage())
@@ -235,13 +150,20 @@ public class DeviceInfoCollector {
 
     private String getSimState(int simState) {
         switch (simState) {
-            case TelephonyManager.SIM_STATE_ABSENT: return "ABSENT";
-            case TelephonyManager.SIM_STATE_NETWORK_LOCKED: return "NETWORK_LOCKED";
-            case TelephonyManager.SIM_STATE_PIN_REQUIRED: return "PIN_REQUIRED";
-            case TelephonyManager.SIM_STATE_PUK_REQUIRED: return "PUK_REQUIRED";
-            case TelephonyManager.SIM_STATE_READY: return "READY";
-            case TelephonyManager.SIM_STATE_UNKNOWN: return "UNKNOWN";
-            default: return "UNKNOWN (" + simState + ")";
+            case TelephonyManager.SIM_STATE_ABSENT:
+                return "ABSENT";
+            case TelephonyManager.SIM_STATE_NETWORK_LOCKED:
+                return "NETWORK_LOCKED";
+            case TelephonyManager.SIM_STATE_PIN_REQUIRED:
+                return "PIN_REQUIRED";
+            case TelephonyManager.SIM_STATE_PUK_REQUIRED:
+                return "PUK_REQUIRED";
+            case TelephonyManager.SIM_STATE_READY:
+                return "READY";
+            case TelephonyManager.SIM_STATE_UNKNOWN:
+                return "UNKNOWN";
+            default:
+                return "UNKNOWN (" + simState + ")";
         }
     }
 
