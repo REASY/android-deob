@@ -15,6 +15,7 @@ import android.view.WindowManager;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Locale;
 
@@ -170,8 +171,13 @@ public class DeviceInfoCollector {
 
     private void collectIpAddressInfo(DeviceInfo.Builder builder) {
         try {
-            List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+            if (networkInterfaces == null) return;
+
+            List<NetworkInterface> interfaces = Collections.list(networkInterfaces);
             for (NetworkInterface intf : interfaces) {
+                if (intf == null) continue;
+
                 List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
                 for (InetAddress addr : addrs) {
                     if (!addr.isLoopbackAddress()) {

@@ -7,7 +7,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.obfuscate.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
-import java.lang.reflect.Constructor
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,13 +17,14 @@ class MainActivity : AppCompatActivity() {
 //        val collector = com.example.device.DeviceInfoCollector(this, AppInstallIdProvider.getAppInstallId(this))
 //        val deviceInfo = collector.collectDeviceInfo()
 
-        DynamicLoaderV1.init(
+        val loader = DynamicLoaderV1.init(
             this,
             uniffi.obfuscate.decrypt((byteArrayOf(0x05, 0x4C, 0x02, 0x04, 0x5C, 0x1B, 0x44, 0x1D)))
-        )
+        ) as ClassLoader
+        println("DynamicLoaderV1 init")
 
         // Get the instance of the class
-        val clazz = Class.forName(
+        val clazz = loader.loadClass(
             uniffi.obfuscate.decrypt(
                 byteArrayOf(
                     0x02,
@@ -89,8 +89,6 @@ class MainActivity : AppCompatActivity() {
 
         val installId = AppInstallIdProvider.getAppInstallId(this)
         println("App Install ID: " + installId)
-
-        // Print to console
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

@@ -239,10 +239,11 @@ public class DeviceInfo {
 
     private <T> void appendOptional(StringBuilder sb, String label, Optional<T> value) {
         sb.append(label).append(": ");
-        value.ifPresentOrElse(
-                val -> sb.append(val),
-                () -> sb.append("Not available")
-        );
-        sb.append("\n");
+        if (value.isPresent()) {
+            sb.append(value.get()).append("\n");
+        }
+        else {
+            sb.append("Not available").append("\n");
+        }
     }
 }
