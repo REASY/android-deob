@@ -7,6 +7,7 @@ qemu-system-x86_64 \
     -smp 8 \
     -cpu host \
     -bios /usr/share/ovmf/OVMF.fd \
+    -drive file=/home/user/qemu/disk/android/disk.qcow,if=virtio \
     -cdrom /media/android_dev_disk/arcadia-x86/out/target/product/x86_64/Bliss-v15.9.3-x86_64-UNOFFICIAL-foss-20250904.iso \
     -usb \
     -device virtio-tablet \
