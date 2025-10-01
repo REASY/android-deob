@@ -1,0 +1,353 @@
+android_dlopen_ext(path=/data/app/~~pDNp0J8wVU_hkHdSdG3WCQ==/com.example.obfuscate-u28bYex3idpjb0waoEspgg==/base.apk!/lib/x86_64/libjnidispatch.so, mode=0x2) ret: 0xfa95aa9894504ddb
+dlsym(handle=0xfa95aa9894504ddb, name=JNI_OnLoad) ret: 0x7d29a988f9c0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_getNativeVersion) ret: 0x7d29a988f980
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_sizeof) ret: 0x7d29a988e9d0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_initIDs) ret: 0x7d29a988ea60
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_malloc) ret: 0x7d29a988e9b0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_setMemory) ret: 0x7d29a988e890
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_getLong) ret: 0x7d29a988e7d0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_getShort) ret: 0x7d29a988e7e0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native__1getPointer) ret: 0x7d29a988e770
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_setPointer) ret: 0x7d29a988e8d0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_setLong) ret: 0x7d29a988e910
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_setShort) ret: 0x7d29a988e920
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_open) ret: 0x7d29a988e2c0
+dlopen(path=libuniffi_obfuscate.so, mode=0x101) ret: 0x4716d39e43e19133
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_findSymbol) ret: 0x7d29a988e470
+dlsym(handle=0x4716d39e43e19133, name=ffi_obfuscate_uniffi_contract_version) ret: 0x7d29a96a9c60
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_invokeInt) ret: 0x7d29a988e1f0
+dlsym(handle=0x4716d39e43e19133, name=uniffi_obfuscate_checksum_func_decrypt) ret: 0x7d29a96a9c40
+dlsym(handle=0x4716d39e43e19133, name=uniffi_obfuscate_checksum_func_decrypt_bytes) ret: 0x7d29a96a9c50
+dlsym(handle=0x4716d39e43e19133, name=ffi_obfuscate_rustbuffer_alloc) ret: 0x7d29a96a9c70
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_setByte) ret: 0x7d29a988e8b0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_invokeStructure) ret: 0x7d29a988e150
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_getByte) ret: 0x7d29a988e750
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_getDirectByteBuffer) ret: 0x0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_getDirectByteBuffer__Lcom_sun_jna_Pointer_2JJJ) ret: 0x7d29a988e780
+dlsym(handle=0x4716d39e43e19133, name=uniffi_obfuscate_fn_func_decrypt) ret: 0x7d29a96aa790
+
+*** Found uniffi_obfuscate_fn_func_decrypt at: 0x7d29a96aa790 *** 
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d806fc40
+RustCallStatus* out_status: 0x7d29d80486d0
+RustBuffer data (from stack) - capacity: 12, len: 12, data pointer: 0x7d29c809f210
+Data len            : 8
+Input data (hex)    : 05 4c 02 04 5c 1b 44 1d
+Raw input data (hex): 00 00 00 08 05 4c 02 04 5c 1b 44 1d
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 8, len: 8, data pointer: 0x7d29c809c610
+Returned data (hex)  : 64 61 74 61 2e 62 69 6e
+Returned data (ascii): data.bin
+RustCallStatus error code: 0
+=============================================
+
+dlsym(handle=0x4716d39e43e19133, name=ffi_obfuscate_rustbuffer_free) ret: 0x7d29a96a9cb0
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_invokeVoid) ret: 0x7d29a988e250
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8046840
+RustCallStatus* out_status: 0x7d29d806f6d0
+RustBuffer data (from stack) - capacity: 13, len: 13, data pointer: 0x7d29c809f210
+Data len            : 9
+Input data (hex)    : 06 48 02 24 01 0a 48 07 16
+Raw input data (hex): 00 00 00 09 06 48 02 24 01 0a 48 07 16
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 9, len: 9, data pointer: 0x7d29c809c1b0
+Returned data (hex)  : 67 65 74 41 73 73 65 74 73
+Returned data (ascii): getAssets
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8046e70
+RustCallStatus* out_status: 0x7d29d8047290
+RustBuffer data (from stack) - capacity: 8, len: 8, data pointer: 0x7d29c809c1b0
+Data len            : 4
+Input data (hex)    : 0e 5d 13 0b
+Raw input data (hex): 00 00 00 04 0e 5d 13 0b
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 4, len: 4, data pointer: 0x7d29c809f210
+Returned data (hex)  : 6f 70 65 6e
+Returned data (ascii): open
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8046db0
+RustCallStatus* out_status: 0x7d29d8046ab0
+RustBuffer data (from stack) - capacity: 33, len: 33, data pointer: 0x7d29e8075850
+Data len            : 29
+Input data (hex)    : 0b 4c 00 04 5c 10 42 5d 27 1a 06 00 35 5f 19 04 00 62 13 1b 02 58 00 3b 1d 01 48 40 2d
+Raw input data (hex): 00 00 00 1d 0b 4c 00 04 5c 10 42 5d 27 1a 06 00 35 5f 19 04 00 62 13 1b 02 58 00 3b 1d 01 48 40 2d
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 29, len: 29, data pointer: 0x7d29d8045fd0
+Returned data (hex)  : 6a 61 76 61 2e 69 6f 2e 42 79 74 65 41 72 72 61 79 4f 75 74 70 75 74 53 74 72 65 61 6d
+Returned data (ascii): java.io.ByteArrayOutputStream
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8046c00
+RustCallStatus* out_status: 0x7d29d8046630
+RustBuffer data (from stack) - capacity: 23, len: 23, data pointer: 0x7d29d8045e50
+Data len            : 19
+Input data (hex)    : 0b 4c 00 04 5c 10 42 5d 2c 0d 02 10 00 7e 1f 17 1c 4c 0b
+Raw input data (hex): 00 00 00 13 0b 4c 00 04 5c 10 42 5d 2c 0d 02 10 00 7e 1f 17 1c 4c 0b
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 19, len: 19, data pointer: 0x7d29d8047680
+Returned data (hex)  : 6a 61 76 61 2e 69 6f 2e 49 6e 70 75 74 53 74 72 65 61 6d
+Returned data (ascii): java.io.InputStream
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8048340
+RustCallStatus* out_status: 0x7d29d8046f60
+RustBuffer data (from stack) - capacity: 8, len: 8, data pointer: 0x7d29c8008110
+Data len            : 4
+Input data (hex)    : 13 48 17 01
+Raw input data (hex): 00 00 00 04 13 48 17 01
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 4, len: 4, data pointer: 0x7d29c809c1b0
+Returned data (hex)  : 72 65 61 64
+Returned data (ascii): read
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d80476b0
+RustCallStatus* out_status: 0x7d29d8046b40
+RustBuffer data (from stack) - capacity: 9, len: 9, data pointer: 0x7d29c809c610
+Data len            : 5
+Input data (hex)    : 16 5f 1f 11 17
+Raw input data (hex): 00 00 00 05 16 5f 1f 11 17
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 5, len: 5, data pointer: 0x7d29c8008110
+Returned data (hex)  : 77 72 69 74 65
+Returned data (ascii): write
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8047ec0
+RustCallStatus* out_status: 0x7d29d80481f0
+RustBuffer data (from stack) - capacity: 9, len: 9, data pointer: 0x7d29c809c1b0
+Data len            : 5
+Input data (hex)    : 02 41 19 16 17
+Raw input data (hex): 00 00 00 05 02 41 19 16 17
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 5, len: 5, data pointer: 0x7d29c809c610
+Returned data (hex)  : 63 6c 6f 73 65
+Returned data (ascii): close
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d80474a0
+RustCallStatus* out_status: 0x7d29d8047800
+RustBuffer data (from stack) - capacity: 9, len: 9, data pointer: 0x7d29c8008110
+Data len            : 5
+Input data (hex)    : 02 41 19 16 17
+Raw input data (hex): 00 00 00 05 02 41 19 16 17
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 5, len: 5, data pointer: 0x7d29c809c1b0
+Returned data (hex)  : 63 6c 6f 73 65
+Returned data (ascii): close
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8048a90
+RustCallStatus* out_status: 0x7d29d8048310
+RustBuffer data (from stack) - capacity: 15, len: 15, data pointer: 0x7d29c809c610
+Data len            : 11
+Input data (hex)    : 15 42 34 1c 06 1c 6c 01 17 02 0b
+Raw input data (hex): 00 00 00 0b 15 42 34 1c 06 1c 6c 01 17 02 0b
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 11, len: 11, data pointer: 0x7d29c8008110
+Returned data (hex)  : 74 6f 42 79 74 65 41 72 72 61 79
+Returned data (ascii): toByteArray
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8046150
+RustCallStatus* out_status: 0x7d29d8047f20
+RustBuffer data (from stack) - capacity: 32, len: 32, data pointer: 0x7d29d8046030
+Data len            : 28
+Input data (hex)    : 14 43 1f 03 14 10 03 1c 07 05 07 16 17 4c 1f 00 57 62 04 09 07 5e 17 09 1d 16 66 55
+Raw input data (hex): 00 00 00 1c 14 43 1f 03 14 10 03 1c 07 05 07 16 17 4c 1f 00 57 62 04 09 07 5e 17 09 1d 16 66 55
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 28, len: 28, data pointer: 0x7d29d8045e20
+Returned data (hex)  : 75 6e 69 66 66 69 2e 6f 62 66 75 73 63 61 74 65 2e 4f 62 66 75 73 63 61 74 65 4b 74
+Returned data (ascii): uniffi.obfuscate.ObfuscateKt
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8046480
+RustCallStatus* out_status: 0x7d29d80462a0
+RustBuffer data (from stack) - capacity: 16, len: 16, data pointer: 0x7d29c809c1b0
+Data len            : 12
+Input data (hex)    : 05 48 15 17 0b 09 59 31 1c 17 17 16
+Raw input data (hex): 00 00 00 0c 05 48 15 17 0b 09 59 31 1c 17 17 16
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 12, len: 12, data pointer: 0x7d29c809c610
+Returned data (hex)  : 64 65 63 72 79 70 74 42 79 74 65 73
+Returned data (ascii): decryptBytes
+RustCallStatus error code: 0
+=============================================
+
+dlsym(handle=0x4716d39e43e19133, name=uniffi_obfuscate_fn_func_decrypt_bytes) ret: 0x7d29a96aa7d0
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8045580
+RustCallStatus* out_status: 0x7d29d80456d0
+RustBuffer data (from stack) - capacity: 23, len: 23, data pointer: 0x7d29d8045790
+Data len            : 19
+Input data (hex)    : 0b 4c 00 04 5c 17 44 1c 4b 21 0b 11 11 6f 1e 03 1f 48 14
+Raw input data (hex): 00 00 00 13 0b 4c 00 04 5c 17 44 1c 4b 21 0b 11 11 6f 1e 03 1f 48 14
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 19, len: 19, data pointer: 0x7d29d8045670
+Returned data (hex)  : 6a 61 76 61 2e 6e 69 6f 2e 42 79 74 65 42 75 66 66 65 72
+Returned data (ascii): java.nio.ByteBuffer
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d80488e0
+RustCallStatus* out_status: 0x7d29d8045b20
+RustBuffer data (from stack) - capacity: 8, len: 8, data pointer: 0x7d29c8008110
+Data len            : 4
+Input data (hex)    : 16 5f 17 15
+Raw input data (hex): 00 00 00 04 16 5f 17 15
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 4, len: 4, data pointer: 0x7d29c809c2b0
+Returned data (hex)  : 77 72 61 70
+Returned data (ascii): wrap
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8044dd0
+RustCallStatus* out_status: 0x7d29d8047680
+RustBuffer data (from stack) - capacity: 18, len: 18, data pointer: 0x7d29d8045b80
+Data len            : 14
+Input data (hex)    : 06 48 02 26 1e 18 5e 00 29 0c 13 01 11 5f
+Raw input data (hex): 00 00 00 0e 06 48 02 26 1e 18 5e 00 29 0c 13 01 11 5f
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 14, len: 14, data pointer: 0x7d29c809c2b0
+Returned data (hex)  : 67 65 74 43 6c 61 73 73 4c 6f 61 64 65 72
+Returned data (ascii): getClassLoader
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d80452b0
+RustCallStatus* out_status: 0x7d29d80453d0
+RustBuffer data (from stack) - capacity: 40, len: 40, data pointer: 0x7d29e8075ed0
+Data len            : 36
+Input data (hex)    : 05 4c 1a 13 1b 12 03 00 1c 10 06 00 19 03 22 0b 34 48 0b 00 00 54 30 0d 11 30 41 40 33 50 68 0e 4c 12 00 00
+Raw input data (hex): 00 00 00 24 05 4c 1a 13 1b 12 03 00 1c 10 06 00 19 03 22 0b 34 48 0b 00 00 54 30 0d 11 30 41 40 33 50 68 0e 4c 12 00 00
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 36, len: 36, data pointer: 0x7d29e8075c50
+Returned data (hex)  : 64 61 6c 76 69 6b 2e 73 79 73 74 65 6d 2e 49 6e 4d 65 6d 6f 72 79 44 65 78 43 6c 61 73 73 4c 6f 61 64 65 72
+Returned data (ascii): dalvik.system.InMemoryDexClassLoader
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8044aa0
+RustCallStatus* out_status: 0x7d29d80451f0
+RustBuffer data (from stack) - capacity: 23, len: 23, data pointer: 0x7d29d8044b00
+Data len            : 19
+Input data (hex)    : 0b 4c 00 04 5c 17 44 1c 4b 21 0b 11 11 6f 1e 03 1f 48 14
+Raw input data (hex): 00 00 00 13 0b 4c 00 04 5c 17 44 1c 4b 21 0b 11 11 6f 1e 03 1f 48 14
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 19, len: 19, data pointer: 0x7d29d8045250
+Returned data (hex)  : 6a 61 76 61 2e 6e 69 6f 2e 42 79 74 65 42 75 66 66 65 72
+Returned data (ascii): java.nio.ByteBuffer
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d80451c0
+RustCallStatus* out_status: 0x7d29d8044ad0
+RustBuffer data (from stack) - capacity: 25, len: 25, data pointer: 0x7d29d8044530
+Data len            : 21
+Input data (hex)    : 0b 4c 00 04 5c 15 4c 1d 02 4d 31 09 15 5e 18 29 16 4c 02 0a 00
+Raw input data (hex): 00 00 00 15 0b 4c 00 04 5c 15 4c 1d 02 4d 31 09 15 5e 18 29 16 4c 02 0a 00
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 21, len: 21, data pointer: 0x7d29d8044bf0
+Returned data (hex)  : 6a 61 76 61 2e 6c 61 6e 67 2e 43 6c 61 73 73 4c 6f 61 64 65 72
+Returned data (ascii): java.lang.ClassLoader
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d80444a0
+RustCallStatus* out_status: 0x7d29d8044bf0
+RustBuffer data (from stack) - capacity: 42, len: 42, data pointer: 0x7d29e80764d0
+Data len            : 38
+Input data (hex)    : 02 42 1b 4b 17 01 4c 1e 15 0f 17 4b 10 48 1d 0c 1a 48 48 2b 17 5b 1d 0b 0c 3a 43 47 2f 60 4b 0d 41 13 06 06 16 5f
+Raw input data (hex): 00 00 00 26 02 42 1b 4b 17 01 4c 1e 15 0f 17 4b 10 48 1d 0c 1a 48 48 2b 17 5b 1d 0b 0c 3a 43 47 2f 60 4b 0d 41 13 06 06 16 5f
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 38, len: 38, data pointer: 0x7d29e8075d50
+Returned data (hex)  : 63 6f 6d 2e 65 78 61 6d 70 6c 65 2e 64 65 76 69 63 65 2e 44 65 76 69 63 65 49 6e 66 6f 43 6f 6c 6c 65 63 74 6f 72
+Returned data (ascii): com.example.device.DeviceInfoCollector
+RustCallStatus error code: 0
+=============================================
+
+
+=== uniffi_obfuscate_fn_func_decrypt called ===
+Hidden return buffer: 0x7d29d8048790
+RustCallStatus* out_status: 0x7d29d80441d0
+RustBuffer data (from stack) - capacity: 21, len: 21, data pointer: 0x7d29d8048190
+Data len            : 17
+Input data (hex)    : 02 42 1a 09 17 1a 59 37 00 15 1b 06 11 64 05 03 16
+Raw input data (hex): 00 00 00 11 02 42 1a 09 17 1a 59 37 00 15 1b 06 11 64 05 03 16
+
+=== uniffi_obfuscate_fn_func_decrypt returning ===
+Return RustBuffer - capacity: 17, len: 17, data pointer: 0x7d29d8048670
+Returned data (hex)  : 63 6f 6c 6c 65 63 74 44 65 76 69 63 65 49 6e 66 6f
+Returned data (ascii): collectDeviceInfo
+RustCallStatus error code: 0
+=============================================
+
+dlsym(handle=0xfa95aa9894504ddb, name=Java_com_sun_jna_Native_free) ret: 0x7d29a988e9c0

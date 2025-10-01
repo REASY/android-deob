@@ -1,0 +1,45 @@
+#!/usr/local/bin/bpftrace
+
+uprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:android_dlopen_ext {
+    printf("[pid=%d comm=%s] android_dlopen_ext(path=%s, mode=%d)\n", pid, comm, str(arg0), arg1);
+    @android_dl_fname_str[tid] = str(arg0);
+    @android_dl_flags[tid]     = arg1;
+}
+
+uretprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:android_dlopen_ext
+{
+  $fname = @android_dl_fname_str[tid];
+  $flags = @android_dl_flags[tid];
+  printf("[pid=%d comm=%s] android_dlopen_ext(path=%s, mode=%d) ret:%p\n", pid, comm, $fname, $flags, retval);
+  delete(@android_dl_fname_str[tid]);
+  delete(@android_dl_flags[tid]);
+}
+
+uprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlopen {
+    printf("[pid=%d comm=%s] dlopen(path=%s, mode=%d)\n", pid, comm, str(arg0), arg1);
+    @dl_fname_str[tid] = str(arg0);
+    @dl_flags[tid]     = arg1;
+}
+
+uretprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlopen
+{
+  $fname = @dl_fname_str[tid];
+  $flags = @dl_flags[tid];
+  printf("[pid=%d comm=%s] dlopen(path=%s, mode=%d) ret:%p\n", pid, comm, $fname, $flags, retval);
+  delete(@dl_fname_str[tid]);
+  delete(@dl_flags[tid]);
+}
+
+uprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlsym {
+    printf("[pid=%d comm=%s] dlsym(handle=%p, name=%s)\n", pid, comm, arg0, str(arg1));
+    @dlsym_handle[tid] = arg0;
+    @dlsym_name[tid]   = str(arg1);
+}
+
+uretprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlsym {
+    $handle = @dlsym_handle[tid];
+    $name   = @dlsym_name[tid];
+    printf("[pid=%d comm=%s] dlsym(handle=%p, name=%s) ret:%p\n", pid, comm, $handle, $name, retval);
+    delete(@dlsym_handle[tid]);
+    delete(@dlsym_name[tid]);
+}

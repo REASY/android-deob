@@ -1,0 +1,437 @@
+Attaching 6 probes...
+[pid=22172 comm=usap64] dlopen(path=, mode=2)
+[pid=22172 comm=usap64] dlopen(path=, mode=2) ret:0xd4d875706db5f061
+[pid=22172 comm=usap64] dlsym(handle=0xd4d875706db5f061, name=NativeBridgeAvailable)
+[pid=22172 comm=usap64] dlsym(handle=0xd4d875706db5f061, name=NativeBridgeAvailable) ret:0x7d2c5651f280
+[pid=22172 comm=usap64] dlsym(handle=0xd4d875706db5f061, name=NativeBridgeInitialized)
+[pid=22172 comm=usap64] dlsym(handle=0xd4d875706db5f061, name=NativeBridgeInitialized) ret:0x7d2c5651ea00
+[pid=22172 comm=usap64] dlsym(handle=0xd4d875706db5f061, name=NeedsNativeBridge)
+[pid=22172 comm=usap64] dlsym(handle=0xd4d875706db5f061, name=NeedsNativeBridge) ret:0x7d2c5651e2a0
+[pid=22172 comm=ample.obfuscat] dlopen(path=libperfetto_hprof.so, mode=1)
+[pid=22172 comm=ample.obfuscat] dlopen(path=libperfetto_hprof.so, mode=1) ret:(nil)
+[pid=22172 comm=re-initialized>] android_dlopen_ext(path=libstats_jni.so, mode=2)
+[pid=22172 comm=re-initialized>] android_dlopen_ext(path=libstats_jni.so, mode=2) ret:0x5501ad6bb521b127
+[pid=22172 comm=re-initialized>] dlsym(handle=0x5501ad6bb521b127, name=JNI_OnLoad)
+[pid=22172 comm=re-initialized>] dlsym(handle=0x5501ad6bb521b127, name=JNI_OnLoad) ret:0x7d29aa94b7d0
+[pid=22172 comm=ample.obfuscate] android_dlopen_ext(path=/system/system_ext/framework/oat/x86_64/androidx.window.extensions.odex, mode=2)
+[pid=22172 comm=ample.obfuscate] android_dlopen_ext(path=/system/system_ext/framework/oat/x86_64/androidx.window.extensions.odex, mode=2) ret:0xb925139fe363ae0f
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdata)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdata) ret:0x7d29aa7c5000
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatlastword)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatlastword) ret:0x7d29aa7c5ffc
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdatabimgrelro)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdatabimgrelro) ret:(nil)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatbss)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatbss) ret:(nil)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdex)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdex) ret:0x7d29aa7c6000
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdexlastword)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb925139fe363ae0f, name=oatdexlastword) ret:0x7d29aa7c64b4
+[pid=22172 comm=ample.obfuscate] android_dlopen_ext(path=/data/app/~~pDNp0J8wVU_hkHdSdG3WCQ==/com.example.obfuscate-u28bYex3idpjb0waoEspgg==/oat/x86_64/base.odex, mode=2)
+[pid=22172 comm=ample.obfuscate] android_dlopen_ext(path=/data/app/~~pDNp0J8wVU_hkHdSdG3WCQ==/com.example.obfuscate-u28bYex3idpjb0waoEspgg==/oat/x86_64/base.odex, mode=2) ret:0xb738add2a887f1f3
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdata)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdata) ret:0x7d29aa643000
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatlastword)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatlastword) ret:0x7d29aa646ffc
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdatabimgrelro)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdatabimgrelro) ret:(nil)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatbss)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatbss) ret:(nil)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdex)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdex) ret:0x7d29aa647000
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdexlastword)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xb738add2a887f1f3, name=oatdexlastword) ret:0x7d29aa7ad884
+[pid=22172 comm=ample.obfuscate] dlopen(path=libandroid.so, mode=4098)
+[pid=22172 comm=ample.obfuscate] dlopen(path=libandroid.so, mode=4098) ret:0x66dd03466f65267f
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_create)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_create) ret:0x7d299f9e19a0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_acquire)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_acquire) ret:0x7d299f9e1b60
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_release)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_release) ret:0x7d299f9e1b70
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_registerSurfaceStatsListener)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_registerSurfaceStatsListener) ret:0x7d299f9e1b80
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_unregisterSurfaceStatsListener)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControl_unregisterSurfaceStatsListener) ret:0x7d299f9e1cf0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControlStats_getAcquireTime)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControlStats_getAcquireTime) ret:0x7d299f9e1d60
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControlStats_getFrameNumber)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceControlStats_getFrameNumber) ret:0x7d299f9e1d70
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_create)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_create) ret:0x7d299f9e1d80
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_delete)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_delete) ret:0x7d299f9e1da0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_apply)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_apply) ret:0x7d299f9e1db0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_reparent)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_reparent) ret:0x7d299f9e22b0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_setVisibility)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_setVisibility) ret:0x7d299f9e23b0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_setZOrder)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x66dd03466f65267f, name=ASurfaceTransaction_setZOrder) ret:0x7d299f9e24a0
+[pid=22172 comm=RenderThread] android_dlopen_ext(path=/vendor/lib64/hw/gralloc.minigbm_arcvm.so, mode=2)
+[pid=22172 comm=RenderThread] android_dlopen_ext(path=/vendor/lib64/hw/gralloc.minigbm_arcvm.so, mode=2) ret:0x79969c0fcf5fa2e9
+[pid=22172 comm=RenderThread] dlsym(handle=0x79969c0fcf5fa2e9, name=HMI)
+[pid=22172 comm=RenderThread] dlsym(handle=0x79969c0fcf5fa2e9, name=HMI) ret:0x7d29aa2a78c0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetStringi)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetStringi) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetStringi)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetStringi) ret:0x7d2c5b1b5ce0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetStringi)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetStringi) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetStringi)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetStringi) ret:0x7d2c5b1b5ce0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMemoryBarrier)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMemoryBarrier) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMemoryBarrier)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMemoryBarrier) ret:0x7d2c5b1b18c0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindVertexArray)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindVertexArray) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindVertexArray)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindVertexArray) ret:0x7d2c5b1b0880
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteVertexArrays)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteVertexArrays) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteVertexArrays)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteVertexArrays) ret:0x7d2c5b1b08a0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGenVertexArrays)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGenVertexArrays) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGenVertexArrays)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGenVertexArrays) ret:0x7d2c5b1b08c0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPatchParameteri)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPatchParameteri) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPatchParameteri)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPatchParameteri) ret:0x7d2c5b1b1e40
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindFragDataLocationEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindFragDataLocationEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindFragDataLocationEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindFragDataLocationEXT) ret:0x7d2c5b1b2d00
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindFragDataLocationIndexedEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindFragDataLocationIndexedEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindFragDataLocationIndexedEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindFragDataLocationIndexedEXT) ret:0x7d2c5b1b2ce0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBlendBarrierKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBlendBarrierKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBlendBarrierKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBlendBarrierKHR) ret:0x7d2c5b1b1fc0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glClearTexImageEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glClearTexImageEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glClearTexImageEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glClearTexImageEXT) ret:0x7d2c5b1b2d80
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glClearTexSubImageEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glClearTexSubImageEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glClearTexSubImageEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glClearTexSubImageEXT) ret:0x7d2c5b1b2da0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawArraysInstanced)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawArraysInstanced) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawArraysInstanced)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawArraysInstanced) ret:0x7d2c5b1b0d60
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawElementsInstanced)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawElementsInstanced) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawElementsInstanced)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawElementsInstanced) ret:0x7d2c5b1b0d80
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawArraysInstancedBaseInstanceEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawArraysInstancedBaseInstanceEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawArraysInstancedBaseInstanceEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawArraysInstancedBaseInstanceEXT) ret:0x7d2c5b1b2c80
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawElementsInstancedBaseVertexBaseInstanceEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawElementsInstancedBaseVertexBaseInstanceEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawElementsInstancedBaseVertexBaseInstanceEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawElementsInstancedBaseVertexBaseInstanceEXT) ret:0x7d2c5b1b2cc0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawBuffers)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawBuffers) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawBuffers)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawBuffers) ret:0x7d2c5b1b0700
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glReadBuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glReadBuffer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glReadBuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glReadBuffer) ret:0x7d2c5b1b0500
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawArraysIndirect)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawArraysIndirect) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawArraysIndirect)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawArraysIndirect) ret:0x7d2c5b1b1200
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawElementsIndirect)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawElementsIndirect) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawElementsIndirect)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawElementsIndirect) ret:0x7d2c5b1b1220
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawRangeElements)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDrawRangeElements) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawRangeElements)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDrawRangeElements) ret:0x7d2c5b1b0520
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetMultisamplefv)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetMultisamplefv) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetMultisamplefv)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetMultisamplefv) ret:0x7d2c5b1b1920
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetTexLevelParameteriv)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetTexLevelParameteriv) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetTexLevelParameteriv)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetTexLevelParameteriv) ret:0x7d2c5b1b1960
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMultiDrawArraysIndirectEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMultiDrawArraysIndirectEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMultiDrawArraysIndirectEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMultiDrawArraysIndirectEXT) ret:0x7d2c5b1b3560
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMultiDrawElementsIndirectEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMultiDrawElementsIndirectEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMultiDrawElementsIndirectEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMultiDrawElementsIndirectEXT) ret:0x7d2c5b1b3580
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTexBuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTexBuffer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTexBuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTexBuffer) ret:0x7d2c5b1b1f60
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTexBufferRange)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTexBufferRange) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTexBufferRange)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTexBufferRange) ret:0x7d2c5b1b1f80
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTexStorage2D)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTexStorage2D) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTexStorage2D)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTexStorage2D) ret:0x7d2c5b1b1160
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTextureBarrierNV)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glTextureBarrierNV) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTextureBarrierNV)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glTextureBarrierNV) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0x8abb4a63b944378d, name=glTextureBarrierNV)
+[pid=22172 comm=RenderThread] dlsym(handle=0x8abb4a63b944378d, name=glTextureBarrierNV) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDiscardFramebufferEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDiscardFramebufferEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDiscardFramebufferEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDiscardFramebufferEXT) ret:0x7d2c5b1b2ea0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glVertexAttribDivisor)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glVertexAttribDivisor) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glVertexAttribDivisor)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glVertexAttribDivisor) ret:0x7d2c5b1b0fe0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glVertexAttribIPointer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glVertexAttribIPointer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glVertexAttribIPointer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glVertexAttribIPointer) ret:0x7d2c5b1b09e0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBlitFramebuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBlitFramebuffer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBlitFramebuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBlitFramebuffer) ret:0x7d2c5b1b07e0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glRenderbufferStorageMultisample)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glRenderbufferStorageMultisample) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glRenderbufferStorageMultisample)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glRenderbufferStorageMultisample) ret:0x7d2c5b1b0800
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMapBufferOES)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMapBufferOES) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMapBufferOES)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMapBufferOES) ret:0x7d2c5b1b2440
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glUnmapBuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glUnmapBuffer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glUnmapBuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glUnmapBuffer) ret:0x7d2c5b1b06c0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glFlushMappedBufferRange)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glFlushMappedBufferRange) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glFlushMappedBufferRange)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glFlushMappedBufferRange) ret:0x7d2c5b1b0860
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMapBufferRange)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glMapBufferRange) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMapBufferRange)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glMapBufferRange) ret:0x7d2c5b1b0840
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glInsertEventMarkerEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glInsertEventMarkerEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glInsertEventMarkerEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glInsertEventMarkerEXT) ret:0x7d2c5b1b2e40
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPopGroupMarkerEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPopGroupMarkerEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPopGroupMarkerEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPopGroupMarkerEXT) ret:0x7d2c5b1b2e80
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPushGroupMarkerEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPushGroupMarkerEXT) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPushGroupMarkerEXT)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPushGroupMarkerEXT) ret:0x7d2c5b1b2e60
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDebugMessageCallbackKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDebugMessageCallbackKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDebugMessageCallbackKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDebugMessageCallbackKHR) ret:0x7d2c5b1b2020
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDebugMessageControlKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDebugMessageControlKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDebugMessageControlKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDebugMessageControlKHR) ret:0x7d2c5b1b1fe0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDebugMessageInsertKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDebugMessageInsertKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDebugMessageInsertKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDebugMessageInsertKHR) ret:0x7d2c5b1b2000
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetDebugMessageLogKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetDebugMessageLogKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetDebugMessageLogKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetDebugMessageLogKHR) ret:0x7d2c5b1b2040
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glObjectLabelKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glObjectLabelKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glObjectLabelKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glObjectLabelKHR) ret:0x7d2c5b1b20a0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPopDebugGroupKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPopDebugGroupKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPopDebugGroupKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPopDebugGroupKHR) ret:0x7d2c5b1b2080
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPushDebugGroupKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glPushDebugGroupKHR) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPushDebugGroupKHR)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glPushDebugGroupKHR) ret:0x7d2c5b1b2060
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glClientWaitSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glClientWaitSync) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glClientWaitSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glClientWaitSync) ret:0x7d2c5b1b0e00
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteSync) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteSync) ret:0x7d2c5b1b0de0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glFenceSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glFenceSync) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glFenceSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glFenceSync) ret:0x7d2c5b1b0da0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glIsSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glIsSync) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glIsSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glIsSync) ret:0x7d2c5b1b0dc0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glWaitSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glWaitSync) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glWaitSync)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glWaitSync) ret:0x7d2c5b1b0e20
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetInternalformativ)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetInternalformativ) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetInternalformativ)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetInternalformativ) ret:0x7d2c5b1b11a0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetProgramBinary)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetProgramBinary) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetProgramBinary)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetProgramBinary) ret:0x7d2c5b1b10c0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glProgramBinary)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glProgramBinary) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glProgramBinary)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glProgramBinary) ret:0x7d2c5b1b10e0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glProgramParameteri)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glProgramParameteri) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glProgramParameteri)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glProgramParameteri) ret:0x7d2c5b1b1100
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindSampler)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBindSampler) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindSampler)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBindSampler) ret:0x7d2c5b1b0f00
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteSamplers)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteSamplers) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteSamplers)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteSamplers) ret:0x7d2c5b1b0ec0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGenSamplers)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGenSamplers) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGenSamplers)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGenSamplers) ret:0x7d2c5b1b0ea0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glSamplerParameteri)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glSamplerParameteri) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glSamplerParameteri)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glSamplerParameteri) ret:0x7d2c5b1b0f20
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glSamplerParameteriv)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glSamplerParameteriv) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glSamplerParameteriv)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glSamplerParameteriv) ret:0x7d2c5b1b0f40
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBeginQuery)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glBeginQuery) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBeginQuery)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glBeginQuery) ret:0x7d2c5b1b0640
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteQueries)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glDeleteQueries) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteQueries)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glDeleteQueries) ret:0x7d2c5b1b0600
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glEndQuery)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glEndQuery) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glEndQuery)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glEndQuery) ret:0x7d2c5b1b0660
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGenQueries)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGenQueries) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGenQueries)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGenQueries) ret:0x7d2c5b1b05e0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetQueryObjectuiv)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetQueryObjectuiv) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetQueryObjectuiv)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetQueryObjectuiv) ret:0x7d2c5b1b06a0
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetQueryiv)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glGetQueryiv) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetQueryiv)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glGetQueryiv) ret:0x7d2c5b1b0680
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glInvalidateFramebuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glInvalidateFramebuffer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glInvalidateFramebuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glInvalidateFramebuffer) ret:0x7d2c5b1b1120
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glInvalidateSubFramebuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0x685f3a5fb0257529, name=glInvalidateSubFramebuffer) ret:(nil)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glInvalidateSubFramebuffer)
+[pid=22172 comm=RenderThread] dlsym(handle=0xa6c87c45852bd167, name=glInvalidateSubFramebuffer) ret:0x7d2c5b1b1140
+[pid=22172 comm=RenderThread] android_dlopen_ext(path=/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl-2.1.so, mode=1)
+[pid=22172 comm=RenderThread] android_dlopen_ext(path=/vendor/lib64/hw/android.hardware.graphics.mapper@2.0-impl-2.1.so, mode=1) ret:0x22b2a9049a5067c5
+[pid=22172 comm=RenderThread] dlsym(handle=0x22b2a9049a5067c5, name=HIDL_FETCH_IMapper)
+[pid=22172 comm=RenderThread] dlsym(handle=0x22b2a9049a5067c5, name=HIDL_FETCH_IMapper) ret:0x7d298eae1db0
+[pid=22172 comm=RenderThread] android_dlopen_ext(path=/vendor/lib64/hw/gralloc.minigbm_arcvm.so, mode=2)
+[pid=22172 comm=RenderThread] android_dlopen_ext(path=/vendor/lib64/hw/gralloc.minigbm_arcvm.so, mode=2) ret:0x79969c0fcf5fa2e9
+[pid=22172 comm=RenderThread] dlsym(handle=0x79969c0fcf5fa2e9, name=HMI)
+[pid=22172 comm=RenderThread] dlsym(handle=0x79969c0fcf5fa2e9, name=HMI) ret:0x7d29aa2a78c0
+[pid=22172 comm=RenderThread] dlopen(path=libandroid.so, mode=4098)
+[pid=22172 comm=RenderThread] dlopen(path=libandroid.so, mode=4098) ret:0x66dd03466f65267f
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_getManager)
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_getManager) ret:0x7d299f9df1f0
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_createSession)
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_createSession) ret:0x7d299f9df200
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_updateTargetWorkDuration)
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_updateTargetWorkDuration) ret:0x7d299f9df220
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_reportActualWorkDuration)
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_reportActualWorkDuration) ret:0x7d299f9df230
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_closeSession)
+[pid=22172 comm=RenderThread] dlsym(handle=0x66dd03466f65267f, name=APerformanceHint_closeSession) ret:0x7d299f9df240
+[pid=22172 comm=ample.obfuscate] android_dlopen_ext(path=/data/app/~~pDNp0J8wVU_hkHdSdG3WCQ==/com.example.obfuscate-u28bYex3idpjb0waoEspgg==/base.apk!/lib/x86_64/libjnidispatch.so, mode=2)
+[pid=22172 comm=ample.obfuscate] android_dlopen_ext(path=/data/app/~~pDNp0J8wVU_hkHdSdG3WCQ==/com.example.obfuscate-u28bYex3idpjb0waoEspgg==/base.apk!/lib/x86_64/libjnidispatch.so, mode=2) ret:0x4de352924ba3c7f3
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=JNI_OnLoad)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=JNI_OnLoad) ret:0x7d29a98d89c0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getNativeVersion)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getNativeVersion) ret:0x7d29a98d8980
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_sizeof)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_sizeof) ret:0x7d29a98d79d0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_initIDs)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_initIDs) ret:0x7d29a98d7a60
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_malloc)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_malloc) ret:0x7d29a98d79b0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setMemory)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setMemory) ret:0x7d29a98d7890
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getLong)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getLong) ret:0x7d29a98d77d0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getShort)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getShort) ret:0x7d29a98d77e0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native__1getPointer)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native__1getPointer) ret:0x7d29a98d7770
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setPointer)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setPointer) ret:0x7d29a98d78d0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setLong)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setLong) ret:0x7d29a98d7910
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setShort)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setShort) ret:0x7d29a98d7920
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_open)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_open) ret:0x7d29a98d72c0
+[pid=22172 comm=ample.obfuscate] dlopen(path=libuniffi_obfuscate.so, mode=257)
+[pid=22172 comm=ample.obfuscate] dlopen(path=libuniffi_obfuscate.so, mode=257) ret:0xc140eca64925903
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_findSymbol)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_findSymbol) ret:0x7d29a98d7470
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=ffi_obfuscate_uniffi_contract_version)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=ffi_obfuscate_uniffi_contract_version) ret:0x7d29a9732c60
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_invokeInt)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_invokeInt) ret:0x7d29a98d71f0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_checksum_func_decrypt)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_checksum_func_decrypt) ret:0x7d29a9732c40
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_checksum_func_decrypt_bytes)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_checksum_func_decrypt_bytes) ret:0x7d29a9732c50
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=ffi_obfuscate_rustbuffer_alloc)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=ffi_obfuscate_rustbuffer_alloc) ret:0x7d29a9732c70
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setByte)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_setByte) ret:0x7d29a98d78b0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_invokeStructure)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_invokeStructure) ret:0x7d29a98d7150
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getByte)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getByte) ret:0x7d29a98d7750
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getDirectByteBuffer)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getDirectByteBuffer) ret:(nil)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getDirectByteBuffer__Lcom_sun_jna_Pointer_2JJJ)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_getDirectByteBuffer__Lcom_sun_jna_Pointer_2JJJ) ret:0x7d29a98d7780
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_fn_func_decrypt)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_fn_func_decrypt) ret:0x7d29a9733790
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=ffi_obfuscate_rustbuffer_free)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=ffi_obfuscate_rustbuffer_free) ret:0x7d29a9732cb0
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_invokeVoid)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0x4de352924ba3c7f3, name=Java_com_sun_jna_Native_invokeVoid) ret:0x7d29a98d7250
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_fn_func_decrypt_bytes)
+[pid=22172 comm=ample.obfuscate] dlsym(handle=0xc140eca64925903, name=uniffi_obfuscate_fn_func_decrypt_bytes) ret:0x7d29a97337d0
