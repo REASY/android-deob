@@ -20,10 +20,18 @@ cargo run --release --quiet --features=uniffi/cli \
     --package obfuscate \
     --bin uniffi-bindgen \
     generate obfuscate/src/obfuscate.udl \
-    --language kotlin
+    --language kotlin \
+    --out-dir obfuscate/src/kotlin
+
+cargo run --release --quiet --features=uniffi/cli \
+    --package obfuscate \
+    --bin uniffi-bindgen \
+    generate obfuscate/src/obfuscate.udl \
+    --language swift \
+    --out-dir obfuscate/src/swift/uniffi/obfuscate
 
 mkdir -p ../app/src/main/java/uniffi/
-cp -r obfuscate/src/uniffi/ ../app/src/main/java/
+cp -r obfuscate/src/kotlin/uniffi/ ../app/src/main/java/
 
 echo "Copied generated Kotlin code"
 
