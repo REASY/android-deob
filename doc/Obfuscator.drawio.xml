@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="usIiBY5pB4N0n88mJZ16">
+    <mxGraphModel dx="2946" dy="1141" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-51" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="50" width="930" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-18" value="" style="group;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="280" y="100" width="330" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-16" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-18">
+          <mxGeometry width="330" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-14" value="" style="group;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" connectable="0" parent="lh-BN5t3FQPX5J_yE7q_-18">
+          <mxGeometry x="70" y="30" width="210" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" edge="1" parent="lh-BN5t3FQPX5J_yE7q_-14" source="lh-BN5t3FQPX5J_yE7q_-9" target="lh-BN5t3FQPX5J_yE7q_-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-9" value="Use Java Reflection to read data.bin" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-14">
+          <mxGeometry width="210" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" edge="1" parent="lh-BN5t3FQPX5J_yE7q_-14" source="lh-BN5t3FQPX5J_yE7q_-10" target="lh-BN5t3FQPX5J_yE7q_-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-10" value="Pass the content to native code to decrypt it" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-14">
+          <mxGeometry y="55.26315789473684" width="210" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-12" value="Create&amp;nbsp;InMemoryDexClassLoader with decrypted data" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-14">
+          <mxGeometry y="110.52631578947368" width="210" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-15" value="Initialize&amp;nbsp;DynamicLoaderV1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-18">
+          <mxGeometry x="51" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-45" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="280" y="347" width="330" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-34" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-45">
+          <mxGeometry width="330" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" edge="1" parent="lh-BN5t3FQPX5J_yE7q_-45" source="lh-BN5t3FQPX5J_yE7q_-21" target="lh-BN5t3FQPX5J_yE7q_-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-21" value="Use Java Reflection to instantiate&amp;nbsp;DeviceInfoCollector&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-45">
+          <mxGeometry x="70" y="30" width="210" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-23" value="Call&amp;nbsp;collectDeviceInfo" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;container=0;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-45">
+          <mxGeometry x="70" y="90.52315789473681" width="210" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-44" value="Collect device info" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-45">
+          <mxGeometry width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lh-BN5t3FQPX5J_yE7q_-16" target="lh-BN5t3FQPX5J_yE7q_-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-48" value="Set device info as string to the text view" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="537" width="210" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lh-BN5t3FQPX5J_yE7q_-34" target="lh-BN5t3FQPX5J_yE7q_-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-53" value="Obfuscator Android app" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="180" y="50" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lh-BN5t3FQPX5J_yE7q_-54" target="lh-BN5t3FQPX5J_yE7q_-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-60" value="Get Device Info" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lh-BN5t3FQPX5J_yE7q_-55">
+          <mxGeometry x="0.0141" y="1" relative="1" as="geometry">
+            <mxPoint y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-54" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="8" y="295" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-70" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="860" y="290" width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-61" value="Native libuniffi_obfuscate.so&amp;nbsp;" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;whiteSpace=wrap;html=1;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-70">
+          <mxGeometry width="250" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-63" value="uniffi_obfuscate_fn_func_decrypt" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;align=left;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-70">
+          <mxGeometry x="22" y="60" width="220" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-64" value="uniffi_obfuscate_fn_func_decrypt_bytes" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;align=left;" vertex="1" parent="lh-BN5t3FQPX5J_yE7q_-70">
+          <mxGeometry x="22" y="110" width="220" height="39.473684210526315" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lh-BN5t3FQPX5J_yE7q_-67" target="lh-BN5t3FQPX5J_yE7q_-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-67" value="All the strings are resolved via native call, no strings in&amp;nbsp;DynamicLoaderV1" style="text;html=1;align=center;verticalAlign=middle;rounded=0;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="750" y="112.74" width="273" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="lh-BN5t3FQPX5J_yE7q_-10" target="lh-BN5t3FQPX5J_yE7q_-64">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="205" />
+              <mxPoint x="730" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="lh-BN5t3FQPX5J_yE7q_-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="750" y="153" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lh-BN5t3FQPX5J_yE7q_-76" value="Resolve encrypted bytes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="lh-BN5t3FQPX5J_yE7q_-75">
+          <mxGeometry x="-0.0274" y="1" relative="1" as="geometry">
+            <mxPoint x="-1" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
