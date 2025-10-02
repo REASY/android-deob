@@ -1,15 +1,22 @@
 #!/usr/local/bin/bpftrace
 
+// Set user-space probe on libdl.so to trace native call to android_dlopen_ext
 uprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:android_dlopen_ext {
+    // Store the arguments to the function to be able to print them later in the uretprobe
+    // Note: arg0 is the first argument, arg1 is the second argument, etc.
     @android_dl_fname_str[tid] = str(arg0);
     @android_dl_flags[tid]     = arg1;
 }
 
+// Set user-space probe on libdl.so to trace native call to android_dlopen_ext when it returns the result
 uretprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:android_dlopen_ext
 {
+  // Restore the arguments
   $fname = @android_dl_fname_str[tid];
   $flags = @android_dl_flags[tid];
-  printf("[pid=%d comm=%s] android_dlopen_ext(path=%s, mode=%d) ret: %p\n", pid, comm, $fname, $flags, retval);
+  // Print the result
+  printf("android_dlopen_ext(path=%s, mode=%d) ret: %p\n",$fname, $flags, retval);
+  // Delete the arguments
   delete(@android_dl_fname_str[tid]);
   delete(@android_dl_flags[tid]);
 }
@@ -23,7 +30,7 @@ uretprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlopen
 {
   $fname = @dl_fname_str[tid];
   $flags = @dl_flags[tid];
-  printf("[pid=%d comm=%s] dlopen(path=%s, mode=%d) ret: %p\n", pid, comm, $fname, $flags, retval);
+  printf("dlopen(path=%s, mode=%d) ret: %p\n",$fname, $flags, retval);
   delete(@dl_fname_str[tid]);
   delete(@dl_flags[tid]);
 }
@@ -36,7 +43,7 @@ uprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlsym {
 uretprobe:/apex/com.android.runtime/lib64/bionic/libdl.so:dlsym {
     $handle = @dlsym_handle[tid];
     $name   = @dlsym_name[tid];
-    printf("[pid=%d comm=%s] dlsym(handle=%p, name=%s) ret: %p\n", pid, comm, $handle, $name, retval);
+    printf("dlsym(handle=%p, name=%s) ret: %p\n", $handle, $name, retval);
     delete(@dlsym_handle[tid]);
     delete(@dlsym_name[tid]);
 }
