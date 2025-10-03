@@ -89,6 +89,14 @@ Interceptor.attach(Module.findGlobalExportByName('dlsym'), {
                         const stack = this.context.rsp;
                         const rustBufferPtr = stack.add(Process.pointerSize);
 
+                        /*
+                        typedef struct RustBuffer {
+                            uint64_t capacity;  // 8 bytes, offset 0
+                            uint64_t len;       // 8 bytes, offset 8
+                            uint8_t *data;      // 8 bytes, offset 16 (on 64-bit)
+                        } RustBuffer;
+                         */
+
                         const capacity = rustBufferPtr.readU64();
                         const len = rustBufferPtr.add(8).readU64();
                         const dataPtr = rustBufferPtr.add(16).readPointer();
@@ -139,6 +147,12 @@ Interceptor.attach(Module.findGlobalExportByName('dlsym'), {
                             console.log("RustCallStatus error code: " + errorCode);
 
                             if (errorCode !== 0) {
+                                /*
+                                typedef struct RustCallStatus {
+                                    int8_t code;         // offset 0, size 1
+                                    RustBuffer errorBuf; // offset 8 (padding), size 24
+                                } RustCallStatus;
+                                */
                                 // RustCallStatus is padded to 8 bytes, so we need to read the next 8 bytes
                                 const errorBufAddr = outStatusPtr.add(8);
                                 const errorBufCapacity = errorBufAddr.readU64();
