@@ -57,6 +57,8 @@ Interceptor.attach(Module.findGlobalExportByName('dlopen'), {
     }
 });
 
+// Intercept dlsym calls to find the uniffi_obfuscate_fn_func_decrypt function
+// Once the method is found, we can hook it and inspect the input data and the return value
 Interceptor.attach(Module.findGlobalExportByName('dlsym'), {
     onEnter: function (args) {
         this.handle = args[0];
