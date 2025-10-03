@@ -21,7 +21,7 @@ In `MainActivity.kt`, you can see this process in action:
 
 This approach ensures that the actual class and method names are not present as plaintext strings in the final APK, making it significantly harder for reverse-engineering tools to understand the app's logic.
 
-![Obfuscator.drawio.png](doc/Obfuscator.drawio.png){height=40%, width=40%}
+<img src="doc/Obfuscator.drawio.png" width="50%"/>
 
 ## Project Structure
 ```
