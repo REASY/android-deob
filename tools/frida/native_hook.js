@@ -115,7 +115,6 @@ Interceptor.attach(Module.findGlobalExportByName('dlsym'), {
                             console.log("Data len            : " + dataLen);
                             console.log("Input data (hex)    : " + getAsHex(arr.subarray(4)));
                             console.log("Raw input data (hex): " + getAsHex(arr));
-
                         }
                     } catch (e) {
                         console.log("Could not read RustBuffer from stack: " + e);
@@ -129,17 +128,13 @@ Interceptor.attach(Module.findGlobalExportByName('dlsym'), {
                     const capacity = retBuffer.readU64();
                     const len = retBuffer.add(8).readU64();
                     const dataPtr = retBuffer.add(16).readPointer();
-
-                    console.log("Return RustBuffer - capacity: " + capacity +
-                        ", len: " + len +
-                        ", data pointer: " + dataPtr);
+                    console.log("Return RustBuffer - capacity: " + capacity + ", len: " + len + ", data pointer: " + dataPtr);
 
                     if (!dataPtr.isNull() && len > 0) {
                         const retData = dataPtr.readByteArray(parseInt(len));
                         console.log("Returned data (hex)  : " + getAsHex(new Uint8Array(retData)));
                         console.log("Returned data (ascii): " + dataPtr.readCString(parseInt(len)));
                     }
-
 
                     // Also check the out_status for errors
                     try {
