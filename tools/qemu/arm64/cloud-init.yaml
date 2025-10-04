@@ -1,0 +1,58 @@
+#cloud-config
+password: "1"
+chpasswd:
+  expire: False
+ssh_pwauth: True
+
+package_update: true
+package_upgrade: true
+
+groups:
+  - docker
+
+system_info:
+  default_user:
+    groups: [ docker ]
+
+bootcmd:
+  - [ "mkdir", "-p", "/etc/apt/keyrings" ]
+  - [ "chmod", "0755", "/etc/apt/keyrings" ]
+  - sh -c "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg"
+  - [ "chmod", "a+r", "/etc/apt/keyrings/docker.gpg" ]
+
+apt:
+  primary:
+    - arches: [ arm64 ]
+  sources:
+    docker.list:
+      # NOTE: use .gpg (dearmored) path in signed-by
+      source: "deb [signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $RELEASE stable"
+
+write_files:
+  - path: /usr/local/bin/prepare_kernel_module.sh
+    permissions: '0755'
+    content: |
+      #!/usr/bin/env bash
+      set -euxo pipefail
+
+      apt-get update
+      apt-get install -y "linux-modules-extra-$(uname -r)"
+      modprobe binder_linux devices="binder,hwbinder,vndbinder"
+
+packages:
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+  - docker-ce
+  - docker-ce-cli
+  - containerd.io
+  - docker-buildx-plugin
+  - docker-compose-plugin
+
+runcmd:
+  - [ systemctl, enable, --now, docker ]
+  - [ /usr/local/bin/prepare_kernel_module.sh ]
+
+final_message: "The system is finally up, after $UPTIME seconds"
