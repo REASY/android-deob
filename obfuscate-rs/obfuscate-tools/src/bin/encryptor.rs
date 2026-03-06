@@ -34,7 +34,7 @@ fn main() {
                 }
                 let data = &buffer[0..read_bytes];
                 let encrypted = encrypt_bytes(data, key);
-                wrt.write(encrypted.as_slice())
+                wrt.write_all(encrypted.as_slice())
                     .expect("failed to write data");
             }
             Err(err) => {

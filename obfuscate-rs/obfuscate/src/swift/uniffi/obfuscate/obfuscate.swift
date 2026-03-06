@@ -455,6 +455,12 @@ fileprivate struct FfiConverterData: FfiConverterRustBuffer {
         writeBytes(&buf, value)
     }
 }
+public func collectSecurityChecksJson() -> String  {
+    return try!  FfiConverterString.lift(try! rustCall() {
+    uniffi_obfuscate_fn_func_collect_security_checks_json($0
+    )
+})
+}
 public func decrypt(data: Data) -> String  {
     return try!  FfiConverterString.lift(try! rustCall() {
     uniffi_obfuscate_fn_func_decrypt(
@@ -484,6 +490,9 @@ private let initializationResult: InitializationResult = {
     let scaffolding_contract_version = ffi_obfuscate_uniffi_contract_version()
     if bindings_contract_version != scaffolding_contract_version {
         return InitializationResult.contractVersionMismatch
+    }
+    if (uniffi_obfuscate_checksum_func_collect_security_checks_json() != 32923) {
+        return InitializationResult.apiChecksumMismatch
     }
     if (uniffi_obfuscate_checksum_func_decrypt() != 58139) {
         return InitializationResult.apiChecksumMismatch

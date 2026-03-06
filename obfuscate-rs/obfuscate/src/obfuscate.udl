@@ -1,5 +1,5 @@
 namespace obfuscate {
     string decrypt(bytes data);
     bytes decrypt_bytes(bytes data);
+    string collect_security_checks_json();
 };
-

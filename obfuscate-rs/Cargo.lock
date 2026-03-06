@@ -402,6 +402,8 @@ version = "0.0.1"
 dependencies = [
  "jni",
  "obfuscate-core",
+ "serde",
+ "serde_json",
  "uniffi",
 ]
 

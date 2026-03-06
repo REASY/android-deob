@@ -1,6 +1,7 @@
 uniffi::include_scaffolding!("obfuscate");
 
 use obfuscate_core::decrypt_bytes as decrypt_bytes0;
+mod security;
 
 static KEY: &[u8] = "a-very-secret-key-for-this-!@#$".as_bytes();
 
@@ -13,15 +14,13 @@ pub fn decrypt_bytes(data: Vec<u8>) -> Vec<u8> {
     decrypt_bytes0(data, KEY)
 }
 
-use jni::EnvUnowned;
+pub fn collect_security_checks_json() -> String {
+    security::collect_security_checks_json()
+}
 
-// These objects are what you should use as arguments to your native function.
-// They carry extra lifetime information to prevent them escaping from the
-// current local frame (which is the scope within which local (temporary)
-// references to Java objects remain valid)
 use jni::objects::{JClass, JString};
-
 use jni::strings::JNIString;
+use jni::EnvUnowned;
 
 #[allow(non_snake_case)]
 #[unsafe(no_mangle)]

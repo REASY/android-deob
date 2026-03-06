@@ -251,6 +251,12 @@ typedef void (*UniffiForeignFutureCompleteVoid)(uint64_t, UniffiForeignFutureStr
     );
 
 #endif
+#ifndef UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_FN_FUNC_COLLECT_SECURITY_CHECKS_JSON
+#define UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_FN_FUNC_COLLECT_SECURITY_CHECKS_JSON
+RustBuffer uniffi_obfuscate_fn_func_collect_security_checks_json(RustCallStatus *_Nonnull out_status
+    
+);
+#endif
 #ifndef UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_FN_FUNC_DECRYPT
 #define UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_FN_FUNC_DECRYPT
 RustBuffer uniffi_obfuscate_fn_func_decrypt(RustBuffer data, RustCallStatus *_Nonnull out_status
@@ -539,6 +545,12 @@ void ffi_obfuscate_rust_future_free_void(uint64_t handle
 #ifndef UNIFFI_FFIDEF_FFI_OBFUSCATE_RUST_FUTURE_COMPLETE_VOID
 #define UNIFFI_FFIDEF_FFI_OBFUSCATE_RUST_FUTURE_COMPLETE_VOID
 void ffi_obfuscate_rust_future_complete_void(uint64_t handle, RustCallStatus *_Nonnull out_status
+);
+#endif
+#ifndef UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_CHECKSUM_FUNC_COLLECT_SECURITY_CHECKS_JSON
+#define UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_CHECKSUM_FUNC_COLLECT_SECURITY_CHECKS_JSON
+uint16_t uniffi_obfuscate_checksum_func_collect_security_checks_json(void
+    
 );
 #endif
 #ifndef UNIFFI_FFIDEF_UNIFFI_OBFUSCATE_CHECKSUM_FUNC_DECRYPT

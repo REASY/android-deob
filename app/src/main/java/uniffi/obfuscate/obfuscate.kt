@@ -715,6 +715,8 @@ internal interface UniffiForeignFutureCompleteVoid : com.sun.jna.Callback {
 
 
 
+
+
 // For large crates we prevent `MethodTooLargeException` (see #2340)
 // N.B. the name of the extension is very misleading, since it is 
 // rather `InterfaceTooLargeException`, caused by too many methods 
@@ -730,7 +732,9 @@ internal interface UniffiForeignFutureCompleteVoid : com.sun.jna.Callback {
 // when the library is loaded.
 internal interface IntegrityCheckingUniffiLib : Library {
     // Integrity check functions only
-    fun uniffi_obfuscate_checksum_func_decrypt(
+    fun uniffi_obfuscate_checksum_func_collect_security_checks_json(
+): Short
+fun uniffi_obfuscate_checksum_func_decrypt(
 ): Short
 fun uniffi_obfuscate_checksum_func_decrypt_bytes(
 ): Short
@@ -779,7 +783,9 @@ internal interface UniffiLib : Library {
     }
 
     // FFI functions
-    fun uniffi_obfuscate_fn_func_decrypt(`data`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
+    fun uniffi_obfuscate_fn_func_collect_security_checks_json(uniffi_out_err: UniffiRustCallStatus, 
+): RustBuffer.ByValue
+fun uniffi_obfuscate_fn_func_decrypt(`data`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
 ): RustBuffer.ByValue
 fun uniffi_obfuscate_fn_func_decrypt_bytes(`data`: RustBuffer.ByValue,uniffi_out_err: UniffiRustCallStatus, 
 ): RustBuffer.ByValue
@@ -909,6 +915,9 @@ private fun uniffiCheckContractApiVersion(lib: IntegrityCheckingUniffiLib) {
 }
 @Suppress("UNUSED_PARAMETER")
 private fun uniffiCheckApiChecksums(lib: IntegrityCheckingUniffiLib) {
+    if (lib.uniffi_obfuscate_checksum_func_collect_security_checks_json() != 32923.toShort()) {
+        throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
+    }
     if (lib.uniffi_obfuscate_checksum_func_decrypt() != 58139.toShort()) {
         throw RuntimeException("UniFFI API checksum mismatch: try cleaning and rebuilding your project")
     }
@@ -1068,7 +1077,16 @@ public object FfiConverterByteArray: FfiConverterRustBuffer<ByteArray> {
         buf.putInt(value.size)
         buf.put(value)
     }
-} fun `decrypt`(`data`: kotlin.ByteArray): kotlin.String {
+} fun `collectSecurityChecksJson`(): kotlin.String {
+            return FfiConverterString.lift(
+    uniffiRustCall() { _status ->
+    UniffiLib.INSTANCE.uniffi_obfuscate_fn_func_collect_security_checks_json(
+        _status)
+}
+    )
+    }
+    
+ fun `decrypt`(`data`: kotlin.ByteArray): kotlin.String {
             return FfiConverterString.lift(
     uniffiRustCall() { _status ->
     UniffiLib.INSTANCE.uniffi_obfuscate_fn_func_decrypt(
