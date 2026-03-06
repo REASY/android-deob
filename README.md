@@ -45,7 +45,7 @@ This approach ensures that the actual class and method names are not present as 
 -   **Rust**: For the native decryption logic, providing performance and security.
 -   **UniFFI**: A tool for generating high-level, cross-language bindings for Rust libraries.
 -   **JNA (Java Native Access)**: Used by the UniFFI-generated code to call the native library without writing manual JNI code.
--   **Cross**: A tool for cross-compiling the Rust library to various Android targets (e.g., `aarch64-linux-android`, `x86_64-linux-android`).
+-   **Cross / cargo-ndk**: Tooling for building the Rust library for Android targets (e.g., `aarch64-linux-android`, `x86_64-linux-android`), either directly or via Docker.
 
 ## Building and Running the Project
 
@@ -55,21 +55,42 @@ This approach ensures that the actual class and method names are not present as 
 -   A configured NDK path in your environment or `local.properties` file.
 -   Rust toolchain.
 -   `cross` for cross-compilation (`cargo install cross`).
+-   Docker Desktop (recommended on macOS/Apple Silicon to avoid `cross` image/platform issues).
 
 ### Build Steps
 
 1.  **Build the Native Library**:
-    Run the `prepare_native.sh` script. This script will use `cross` to compile the Rust code in the `obfuscate-rs` directory for all required Android targets. The resulting shared libraries (`.so` files) will be copied into the `app/src/main/jniLibs` directory.
+    You have two options:
+
+    **Option A (local, uses `cross`)**:
 
     ```bash
     ./prepare_native.sh
     ```
 
+    **Option B (Docker, uses Ubuntu 25 + `cargo-ndk`)**:
+
+    ```bash
+    VERSION=0.0.1
+    BUILD_DATE="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    COMMIT_SHA="$(git rev-parse HEAD)"
+
+    docker build --platform linux/amd64 \
+      -t android-deob-native-builder \
+      -f docker/Dockerfile docker \
+      --build-arg VERSION="$VERSION" \
+      --build-arg BUILD_DATE="$BUILD_DATE" \
+      --build-arg COMMIT_SHA="$COMMIT_SHA"
+    docker run --rm --platform linux/amd64 -v "$PWD:/workspace" android-deob-native-builder
+    ```
+
+    Option B generates the same native outputs and UniFFI bindings as `prepare_native.sh`, without depending on `cross` container manifests.
+
 2.  **Prepare the Dynamic Classes**:
     Run the `prepare_dynamic_classes.sh` script. This script will use `d8` to compile classes in the namespace com.example.device into the Dex file, which will be encrypted and copied into the `app/src/main/assets` directory.
 
     ```bash
-    ./prepare_native.sh
+    ./prepare_dynamic_classes.sh
     ```
 
 3.  **Build the Android App**:
