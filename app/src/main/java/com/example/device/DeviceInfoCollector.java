@@ -65,7 +65,8 @@ public class DeviceInfoCollector {
                     .setBrand(safeGet(Build.BRAND))
                     .setAndroidVersion(safeGet(Build.VERSION.RELEASE))
                     .setApiLevel(Build.VERSION.SDK_INT)
-                    .setBuildId(safeGet(Build.DISPLAY))
+                    .setBuildId(safeGet(Build.ID))
+                    .setBuildDisplayId(safeGet(Build.DISPLAY))
                     .setFingerprint(safeGet(Build.FINGERPRINT))
                     .setSupportedAbis(Build.SUPPORTED_ABIS);
         } catch (Exception e) {

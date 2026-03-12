@@ -16,6 +16,7 @@ public class DeviceInfo {
     private final Optional<String> androidVersion;
     private final Optional<Integer> apiLevel;
     private final Optional<String> buildId;
+    private final Optional<String> buildDisplayId;
     private final Optional<String> fingerprint;
     private final String[] supportedAbis;
 
@@ -57,6 +58,7 @@ public class DeviceInfo {
         this.androidVersion = Optional.ofNullable(builder.androidVersion);
         this.apiLevel = Optional.ofNullable(builder.apiLevel);
         this.buildId = Optional.ofNullable(builder.buildId);
+        this.buildDisplayId = Optional.ofNullable(builder.buildDisplayId);
         this.fingerprint = Optional.ofNullable(builder.fingerprint);
         this.supportedAbis = builder.supportedAbis;
         this.screenResolution = Optional.ofNullable(builder.screenResolution);
@@ -88,6 +90,7 @@ public class DeviceInfo {
         private String androidVersion;
         private Integer apiLevel;
         private String buildId;
+        private String buildDisplayId;
         private String fingerprint;
         private String[] supportedAbis;
         private String screenResolution;
@@ -119,6 +122,7 @@ public class DeviceInfo {
         public Builder setAndroidVersion(String androidVersion) { this.androidVersion = androidVersion; return this; }
         public Builder setApiLevel(Integer apiLevel) { this.apiLevel = apiLevel; return this; }
         public Builder setBuildId(String buildId) { this.buildId = buildId; return this; }
+        public Builder setBuildDisplayId(String buildDisplayId) { this.buildDisplayId = buildDisplayId; return this; }
         public Builder setFingerprint(String fingerprint) { this.fingerprint = fingerprint; return this; }
         public Builder setScreenResolution(String screenResolution) { this.screenResolution = screenResolution; return this; }
         public Builder setDensity(Float density) { this.density = density; return this; }
@@ -158,6 +162,7 @@ public class DeviceInfo {
         appendOptional(sb, "Android Version", androidVersion);
         appendOptional(sb, "API Level", apiLevel);
         appendOptional(sb, "Build ID", buildId);
+        appendOptional(sb, "Build Display Id", buildDisplayId);
         appendOptional(sb, "Fingerprint", fingerprint);
         appendOptional(sb, "Supported ABIs", Optional.of(Arrays.toString(supportedAbis)));
         appendOptional(sb, "Screen Resolution", screenResolution);
