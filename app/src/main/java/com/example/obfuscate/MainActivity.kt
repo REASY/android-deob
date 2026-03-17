@@ -7,9 +7,11 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.obfuscate.databinding.ActivityMainBinding
+import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val networkExecutor = Executors.newSingleThreadExecutor()
 
     private fun getDeviceInfo(): Any? {
 //        val collector = com.example.device.DeviceInfoCollector(this, AppInstallIdProvider.getAppInstallId(this))
@@ -104,6 +106,50 @@ class MainActivity : AppCompatActivity() {
             val report = runRustSecurityChecks()
             binding.deviceInfoTextView.text = report
         }
+
+        binding.fetchEndpointButton.setOnClickListener {
+            val endpointSpec = binding.endpointEditText.text?.toString().orEmpty()
+            val endpoint = try {
+                EndpointClient.parseEndpoint(endpointSpec)
+            } catch (exception: IllegalArgumentException) {
+                binding.endpointStatusTextView.text = exception.message
+                binding.deviceInfoTextView.text = ""
+                return@setOnClickListener
+            }
+
+            setEndpointRequestInFlight(true)
+            binding.endpointStatusTextView.text = getString(
+                R.string.endpoint_status_connecting,
+                endpoint.toDisplayString()
+            )
+            binding.deviceInfoTextView.text = ""
+
+            networkExecutor.execute {
+                try {
+                    val responseJson = EndpointClient.requestJson(endpoint)
+                    runOnUiThread {
+                        binding.endpointStatusTextView.text = getString(
+                            R.string.endpoint_status_success,
+                            endpoint.toDisplayString()
+                        )
+                        binding.deviceInfoTextView.text = responseJson
+                        setEndpointRequestInFlight(false)
+                    }
+                } catch (exception: Exception) {
+                    Log.e("EndpointClient", "Failed to fetch endpoint JSON", exception)
+                    runOnUiThread {
+                        binding.endpointStatusTextView.text = getString(R.string.endpoint_status_failed)
+                        binding.deviceInfoTextView.text = exception.message ?: exception.toString()
+                        setEndpointRequestInFlight(false)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setEndpointRequestInFlight(inFlight: Boolean) {
+        binding.endpointEditText.isEnabled = !inFlight
+        binding.fetchEndpointButton.isEnabled = !inFlight
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -116,5 +162,10 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onDestroy() {
+        networkExecutor.shutdownNow()
+        super.onDestroy()
     }
 }

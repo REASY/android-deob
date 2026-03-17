@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Obfuscator</string>
     <string name="action_settings">Settings</string>
+    <string name="get_device_info_button">Get Device Info</string>
+    <string name="run_rust_checks_button">Run Rust Checks</string>
+    <string name="endpoint_hint">Endpoint (protocol:host:port)</string>
+    <string name="endpoint_status_idle">Enter a tcp, udp, or http endpoint to send Hello and read JSON.</string>
+    <string name="endpoint_status_connecting">Sending Hello to %1$s...</string>
+    <string name="endpoint_status_success">Received JSON from %1$s.</string>
+    <string name="endpoint_status_failed">Request failed.</string>
+    <string name="fetch_endpoint_button">Send Hello</string>
+    <string name="output_placeholder">Output will appear here</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

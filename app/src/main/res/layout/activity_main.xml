@@ -23,7 +23,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Get Device Info" />
+                android:text="@string/get_device_info_button" />
 
             <Space
                 android:layout_width="12dp"
@@ -34,8 +34,40 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Run Rust Checks" />
+                android:text="@string/run_rust_checks_button" />
         </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/endpoint_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/endpointEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="monospace"
+                android:inputType="textNoSuggestions"
+                android:maxLines="1"
+                android:singleLine="true"
+                tools:text="tcp:10.0.2.2:9000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/endpointStatusTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/endpoint_status_idle"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <Button
+            android:id="@+id/fetchEndpointButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/fetch_endpoint_button" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -47,7 +79,7 @@
                 android:id="@+id/deviceInfoTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Output will appear here"
+                android:text="@string/output_placeholder"
                 android:textIsSelectable="true"
                 android:textSize="12sp"
                 android:typeface="monospace" />
