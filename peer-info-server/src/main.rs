@@ -9,7 +9,12 @@ use thiserror::Error;
 const SERVER_NAME: &str = "peer-info-server";
 const HELLO_BYTES: &[u8] = b"Hello";
 const FIRST_BYTE_TIMEOUT: Duration = Duration::from_secs(5);
-const IDLE_TIMEOUT: Duration = Duration::from_millis(750);
+const TCP_READ_TIMEOUT: Duration = Duration::from_secs(30);
+const TCP_FRAME_VERSION: u8 = 1;
+const TCP_COMMAND_JSON_INFO: u8 = 1;
+const TCP_STATUS_OK: u8 = 0;
+const TCP_STATUS_BAD_REQUEST: u8 = 1;
+const MAX_TCP_PAYLOAD_BYTES: usize = 1024 * 1024;
 const MAX_HTTP_HEADER_BYTES: usize = 64 * 1024;
 const MAX_HTTP_BODY_BYTES: usize = 1024 * 1024;
 
@@ -84,6 +89,9 @@ enum ClientError {
     #[error("TCP client I/O failed: {0}")]
     TcpIo(#[source] io::Error),
 
+    #[error(transparent)]
+    TcpRequest(#[from] TcpRequestError),
+
     #[error("HTTP client I/O failed: {0}")]
     HttpIo(#[source] io::Error),
 
@@ -98,6 +106,21 @@ enum ClientError {
 enum ResponseError {
     #[error("Failed to serialize JSON response: {0}")]
     Serialize(#[from] serde_json::Error),
+}
+
+#[derive(Debug, Error)]
+enum TcpRequestError {
+    #[error("Failed to read TCP frame bytes: {0}")]
+    Io(#[source] io::Error),
+
+    #[error("Unsupported TCP frame version: {0}")]
+    UnsupportedVersion(u8),
+
+    #[error("Unsupported TCP command: {0}")]
+    UnsupportedCommand(u8),
+
+    #[error("TCP payload exceeded the size limit.")]
+    PayloadTooLarge,
 }
 
 #[derive(Debug, Error)]
@@ -151,6 +174,11 @@ struct HttpRequest {
     path: String,
     version: String,
     headers: Vec<HttpHeader>,
+    body: Vec<u8>,
+}
+
+#[derive(Debug, PartialEq, Eq)]
+struct TcpRequest {
     body: Vec<u8>,
 }
 
@@ -352,21 +380,35 @@ fn serve_http(listener: TcpListener) {
 
 fn handle_tcp_client(mut stream: TcpStream) -> Result<(), ClientError> {
     stream
-        .set_read_timeout(Some(FIRST_BYTE_TIMEOUT))
+        .set_read_timeout(Some(TCP_READ_TIMEOUT))
         .map_err(ClientError::TcpIo)?;
     stream
-        .set_write_timeout(Some(FIRST_BYTE_TIMEOUT))
+        .set_write_timeout(Some(TCP_READ_TIMEOUT))
         .map_err(ClientError::TcpIo)?;
 
     let peer_addr = stream.peer_addr().map_err(ClientError::TcpIo)?;
     let local_addr = stream.local_addr().map_err(ClientError::TcpIo)?;
-    let payload = read_payload_bytes(&mut stream).map_err(ClientError::TcpIo)?;
-    let response = build_transport_response("tcp", peer_addr, local_addr, &payload)?;
 
-    stream.write_all(&response).map_err(ClientError::TcpIo)?;
-    stream.flush().map_err(ClientError::TcpIo)?;
-    let _ = stream.shutdown(Shutdown::Both);
-    Ok(())
+    match read_tcp_request(&mut stream) {
+        Ok(request) => {
+            let response = build_transport_response("tcp", peer_addr, local_addr, &request.body)?;
+            write_tcp_response(&mut stream, TCP_STATUS_OK, &response).map_err(ClientError::TcpIo)?;
+            let _ = stream.shutdown(Shutdown::Both);
+            Ok(())
+        }
+        Err(error) => {
+            let body = build_error_response(
+                "tcp",
+                Some(peer_addr),
+                Some(local_addr),
+                &error.to_string(),
+            )?;
+            write_tcp_response(&mut stream, TCP_STATUS_BAD_REQUEST, &body)
+                .map_err(ClientError::TcpIo)?;
+            let _ = stream.shutdown(Shutdown::Both);
+            Err(error.into())
+        }
+    }
 }
 
 fn handle_http_client(mut stream: TcpStream) -> Result<(), ClientError> {
@@ -402,31 +444,43 @@ fn handle_http_client(mut stream: TcpStream) -> Result<(), ClientError> {
     }
 }
 
-fn read_payload_bytes(stream: &mut TcpStream) -> io::Result<Vec<u8>> {
-    let mut payload = Vec::new();
-    let mut buffer = [0_u8; 4096];
-    let mut received_any = false;
+fn read_tcp_request<R: Read>(reader: &mut R) -> Result<TcpRequest, TcpRequestError> {
+    let mut header = [0_u8; 6];
+    reader.read_exact(&mut header).map_err(TcpRequestError::Io)?;
 
-    loop {
-        match stream.read(&mut buffer) {
-            Ok(0) => break,
-            Ok(size) => {
-                payload.extend_from_slice(&buffer[..size]);
-                received_any = true;
-                stream.set_read_timeout(Some(IDLE_TIMEOUT))?;
-            }
-            Err(error) if is_timeout(&error) && received_any => break,
-            Err(error) if is_timeout(&error) => {
-                return Err(io::Error::new(
-                    ErrorKind::TimedOut,
-                    "Timed out waiting for TCP request bytes.",
-                ));
-            }
-            Err(error) => return Err(error),
-        }
+    let version = header[0];
+    if version != TCP_FRAME_VERSION {
+        return Err(TcpRequestError::UnsupportedVersion(version));
     }
 
-    Ok(payload)
+    let command = header[1];
+    if command != TCP_COMMAND_JSON_INFO {
+        return Err(TcpRequestError::UnsupportedCommand(command));
+    }
+
+    let payload_len = u32::from_be_bytes([header[2], header[3], header[4], header[5]]) as usize;
+    if payload_len > MAX_TCP_PAYLOAD_BYTES {
+        return Err(TcpRequestError::PayloadTooLarge);
+    }
+
+    let mut body = vec![0_u8; payload_len];
+    reader.read_exact(&mut body).map_err(TcpRequestError::Io)?;
+
+    Ok(TcpRequest { body })
+}
+
+fn write_tcp_response<W: Write>(writer: &mut W, status: u8, body: &[u8]) -> io::Result<()> {
+    let payload_len = u32::try_from(body.len()).map_err(|_| {
+        io::Error::new(
+            ErrorKind::InvalidInput,
+            "TCP response body exceeded the frame size limit.",
+        )
+    })?;
+
+    writer.write_all(&[status])?;
+    writer.write_all(&payload_len.to_be_bytes())?;
+    writer.write_all(body)?;
+    writer.flush()
 }
 
 fn read_http_request(stream: &mut TcpStream) -> Result<HttpRequest, HttpRequestError> {
@@ -653,10 +707,6 @@ fn join_host_port(host: &str, port: u16) -> String {
     }
 }
 
-fn is_timeout(error: &io::Error) -> bool {
-    matches!(error.kind(), ErrorKind::WouldBlock | ErrorKind::TimedOut)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -752,6 +802,48 @@ mod tests {
         assert_eq!(value["peer"]["ip"].as_str(), Some("127.0.0.1"));
         assert_eq!(value["request"]["hex"].as_str(), Some("48656c6c6f"));
         assert_eq!(value["request"]["is_hello"].as_bool(), Some(true));
+    }
+
+    #[test]
+    fn parse_tcp_request_frame() {
+        let mut cursor = std::io::Cursor::new(vec![
+            TCP_FRAME_VERSION,
+            TCP_COMMAND_JSON_INFO,
+            0,
+            0,
+            0,
+            5,
+            b'H',
+            b'e',
+            b'l',
+            b'l',
+            b'o',
+        ]);
+
+        let request = read_tcp_request(&mut cursor).expect("request should parse");
+
+        assert_eq!(request.body, b"Hello");
+    }
+
+    #[test]
+    fn reject_unsupported_tcp_frame_version() {
+        let mut cursor = std::io::Cursor::new(vec![2, TCP_COMMAND_JSON_INFO, 0, 0, 0, 0]);
+
+        let error = read_tcp_request(&mut cursor).expect_err("request should fail");
+
+        assert!(matches!(error, TcpRequestError::UnsupportedVersion(2)));
+    }
+
+    #[test]
+    fn tcp_response_frame_contains_status_and_length() {
+        let body = br#"{"ok":true}"#;
+        let mut frame = Vec::new();
+
+        write_tcp_response(&mut frame, TCP_STATUS_OK, body).expect("response frame should encode");
+
+        assert_eq!(frame[0], TCP_STATUS_OK);
+        assert_eq!(u32::from_be_bytes([frame[1], frame[2], frame[3], frame[4]]) as usize, body.len());
+        assert_eq!(&frame[5..], body);
     }
 
     fn parse_http_request_bytes(bytes: &[u8]) -> Result<HttpRequest, HttpRequestError> {

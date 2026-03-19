@@ -4,7 +4,8 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import org.json.JSONTokener
-import java.io.ByteArrayOutputStream
+import java.io.DataInputStream
+import java.io.DataOutputStream
 import java.io.IOException
 import java.net.DatagramPacket
 import java.net.DatagramSocket
@@ -12,12 +13,14 @@ import java.net.HttpURLConnection
 import java.net.InetAddress
 import java.net.InetSocketAddress
 import java.net.Socket
-import java.net.SocketTimeoutException
 import java.net.URL
 
 private const val CONNECT_TIMEOUT_MS = 15_000
 private const val READ_TIMEOUT_MS = 15_000
-private const val TCP_IDLE_TIMEOUT_MS = 1_000
+private const val TCP_FRAME_VERSION = 1
+private const val TCP_COMMAND_REQUEST_JSON = 1
+private const val TCP_STATUS_OK = 0
+private const val MAX_TCP_FRAME_BYTES = 1_048_576
 private val HELLO_BYTES = "Hello".toByteArray(Charsets.UTF_8)
 
 enum class EndpointProtocol {
@@ -82,11 +85,7 @@ object EndpointClient {
             socket.connect(InetSocketAddress(endpoint.host, endpoint.port), CONNECT_TIMEOUT_MS)
             socket.soTimeout = READ_TIMEOUT_MS
 
-            val output = socket.getOutputStream()
-            output.write(HELLO_BYTES)
-            output.flush()
-            socket.shutdownOutput()
-
+            writeTcpRequest(socket, HELLO_BYTES)
             return readTcpResponse(socket)
         }
     }
@@ -140,35 +139,35 @@ object EndpointClient {
         }
     }
 
+    private fun writeTcpRequest(socket: Socket, payload: ByteArray) {
+        if (payload.size > MAX_TCP_FRAME_BYTES) {
+            throw IOException("TCP request payload was too large.")
+        }
+
+        val output = DataOutputStream(socket.getOutputStream())
+        output.writeByte(TCP_FRAME_VERSION)
+        output.writeByte(TCP_COMMAND_REQUEST_JSON)
+        output.writeInt(payload.size)
+        output.write(payload)
+        output.flush()
+    }
+
     private fun readTcpResponse(socket: Socket): String {
-        val output = ByteArrayOutputStream()
-        val buffer = ByteArray(4_096)
-        var receivedAnyBytes = false
-
-        while (true) {
-            try {
-                val read = socket.getInputStream().read(buffer)
-                if (read == -1) {
-                    break
-                }
-
-                output.write(buffer, 0, read)
-                receivedAnyBytes = true
-                socket.soTimeout = TCP_IDLE_TIMEOUT_MS
-            } catch (exception: SocketTimeoutException) {
-                if (receivedAnyBytes) {
-                    break
-                }
-
-                throw IOException("Timed out waiting for the first TCP response byte.", exception)
-            }
+        val input = DataInputStream(socket.getInputStream())
+        val status = input.readUnsignedByte()
+        val bodyLength = input.readInt()
+        if (bodyLength < 0 || bodyLength > MAX_TCP_FRAME_BYTES) {
+            throw IOException("TCP response body length was invalid: $bodyLength")
         }
 
-        if (!receivedAnyBytes) {
-            throw IOException("No TCP response received.")
+        val body = ByteArray(bodyLength)
+        input.readFully(body)
+        val responseText = String(body, Charsets.UTF_8)
+        if (status != TCP_STATUS_OK) {
+            throw IOException("TCP server returned status $status: $responseText")
         }
 
-        return String(output.toByteArray(), Charsets.UTF_8)
+        return responseText
     }
 
     private fun formatJson(rawResponse: String): String {
